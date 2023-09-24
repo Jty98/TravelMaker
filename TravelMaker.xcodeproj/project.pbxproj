@@ -253,7 +253,6 @@
 				A253CEA8E3FBF91DC007D99D /* Pods-TravelMaker.debug.xcconfig */,
 				5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
