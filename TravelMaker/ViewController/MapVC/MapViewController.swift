@@ -5,6 +5,8 @@
 //  Created by ms k on 2023/09/22.
 //
 
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<원본이자 우리가 보여줄 코드.
 import UIKit
 import CoreLocation
 import NMapsMap
@@ -15,26 +17,49 @@ class MapViewController: UIViewController {
     //출발지 마커
     let marker = NMFMarker()
     var mapView = NMFMapView()
+    var naverMapView = NMFNaverMapView()
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //<<<MapView>>>
         //맵띄우기
         mapView = NMFMapView(frame: view.frame)
-        let cameraposition = mapView.cameraPosition
-        print(cameraposition)
-        view.addSubview(mapView)
+        //줌레벨
+        mapView.zoomLevel = 12
         
+
+        mapView.positionMode = .direction
+        mapView.positionMode = .compass
+//        let cameraposition = mapView.cameraPosition
+//        print(cameraposition)
+        
+        //mapType지정
+        mapView.mapType = .basic
+        
+        //<<<naverMapView>>>
+        //naverMapView = NMFNaverMapView(frame: view.frame)
+        //naverMapView.showCompass = true
+        //naverMapView.showLocationButton = true
+        //naverMapView.mapView.positionMode = .compass
+
+        
+        //함수 불러오기
         setCamera()
         setMarker()
+        setLimitZoom()
 //        setPath()
         
+        view.addSubview(mapView)
     }
+    //카메라 위치
     func setCamera() {
         let camPosition =  NMGLatLng(lat: 33.507103403, lng:126.492794153)
         let cameraUpdate = NMFCameraUpdate(scrollTo: camPosition)
         mapView.moveCamera(cameraUpdate)
     }
+    //마커
     func setMarker() {
         marker.position = NMGLatLng(lat: 33.507103403, lng:126.492794153)
         marker.iconImage = NMF_MARKER_IMAGE_BLACK
@@ -53,7 +78,15 @@ class MapViewController: UIViewController {
         infoWindow.open(with: marker)
 
     }
-    
+    //최소, 최대 줌 레벨 , 최대 영역 제한
+    func setLimitZoom(){
+        //최대 최소 줌레벨
+        mapView.minZoomLevel = 9.0
+        mapView.maxZoomLevel = 18.0
+        //제주도 범위 제한
+        mapView.extent = NMGLatLngBounds(southWestLat: 33.08, southWestLng: 126.04, northEastLat: 33.65, northEastLng: 127.15)
+    }
+  
     //<<<<<<<<<<<<<<<<<<길만들어주고 싶을 때 사용>>>>>>>>>>>>>>>>>>>>
     //viewdidload에 setPath()만 갖다 쓰면 됌.
 //    func setPath(){
@@ -62,7 +95,7 @@ class MapViewController: UIViewController {
 //        pathOverlay.outlineColor = .blue    // pathOverlay 테두리 색
 //        pathOverlay.width = 10              // pathOverlay 두께
 //                    
-//        // pathOverlay 경로를 설정합니다.
+//        // pathOverlay 경로를 설정
 //        pathOverlay.path = NMGLineString(points: [
 //                NMGLatLng(lat: 37.57152, lng: 126.97714),
 //                NMGLatLng(lat: 37.56607, lng: 126.98268),
@@ -72,9 +105,16 @@ class MapViewController: UIViewController {
 //        pathOverlay.mapView = mapView
 //    }
 
+    //지도에 콘텐츠 뜰 때 패딩값 지정
+    //<<<<<<<<<<<<<<<<<<<<<<<추후 이벤트 추가 예정>>>>>>>>>>>>>>>>>>>>>>>>>
+    func setPadding(){
+        mapView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 200, right: 0)
+    }
     
+   
 
-}//원본
+
+}//원본>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 
