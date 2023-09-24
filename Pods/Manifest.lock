@@ -1,0 +1,49 @@
+PODS:
+  - AppAuth (1.6.2):
+    - AppAuth/Core (= 1.6.2)
+    - AppAuth/ExternalUserAgent (= 1.6.2)
+  - AppAuth/Core (1.6.2)
+  - AppAuth/ExternalUserAgent (1.6.2):
+    - AppAuth/Core
+  - DropDown (2.3.13)
+  - GoogleSignIn (7.0.0):
+    - AppAuth (~> 1.5)
+    - GTMAppAuth (< 3.0, >= 1.3)
+    - GTMSessionFetcher/Core (< 4.0, >= 1.1)
+  - GTMAppAuth (2.0.0):
+    - AppAuth/Core (~> 1.6)
+    - GTMSessionFetcher/Core (< 4.0, >= 1.5)
+  - GTMSessionFetcher/Core (3.1.1)
+  - SDWebImage/Core (5.18.2)
+  - SDWebImage/MapKit (5.18.2):
+    - SDWebImage/Core
+  - SideMenu (6.5.0)
+
+DEPENDENCIES:
+  - DropDown
+  - GoogleSignIn
+  - SDWebImage/MapKit
+  - SideMenu
+
+SPEC REPOS:
+  trunk:
+    - AppAuth
+    - DropDown
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - SDWebImage
+    - SideMenu
+
+SPEC CHECKSUMS:
+  AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
+  GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
+  GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
+  SDWebImage: c0de394d7cf7f9838aed1fd6bb6037654a4572e4
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+
+PODFILE CHECKSUM: 98f3e2bd250a6047cb948d5b7c01d7192936104a
+
+COCOAPODS: 1.12.1

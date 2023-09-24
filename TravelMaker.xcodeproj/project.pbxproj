@@ -53,9 +53,12 @@
 		666CA8C82ABD60F20063AE32 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666CA8C72ABD60F20063AE32 /* SearchResultViewController.swift */; };
 		666CA8CB2ABD61090063AE32 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666CA8CA2ABD61090063AE32 /* MapViewController.swift */; };
 		666CA8D12ABD614F0063AE32 /* MainPageSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666CA8D02ABD614F0063AE32 /* MainPageSB.storyboard */; };
+		8B4376902EBF6E52CA54FCBE /* Pods_TravelMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E454D1F9606A516B83962F /* Pods_TravelMaker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45E454D1F9606A516B83962F /* Pods_TravelMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMaker.release.xcconfig"; path = "Target Support Files/Pods-TravelMaker/Pods-TravelMaker.release.xcconfig"; sourceTree = "<group>"; };
 		6617985B2ABD642D005300BE /* SearchResultSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultSB.storyboard; sourceTree = "<group>"; };
 		6617985D2ABD6441005300BE /* MapSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapSB.storyboard; sourceTree = "<group>"; };
 		6617985F2ABD644B005300BE /* LensSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LensSB.storyboard; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		666CA8C72ABD60F20063AE32 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		666CA8CA2ABD61090063AE32 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		666CA8D02ABD614F0063AE32 /* MainPageSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainPageSB.storyboard; sourceTree = "<group>"; };
+		A253CEA8E3FBF91DC007D99D /* Pods-TravelMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMaker.debug.xcconfig"; path = "Target Support Files/Pods-TravelMaker/Pods-TravelMaker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				66663CEC2AC02C89004C90C8 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				66663CFC2AC02C89004C90C8 /* FirebaseMessaging in Frameworks */,
 				66663CF82AC02C89004C90C8 /* FirebaseInstallations in Frameworks */,
+				8B4376902EBF6E52CA54FCBE /* Pods_TravelMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +135,8 @@
 			children = (
 				666CA8A32ABD5FE00063AE32 /* TravelMaker */,
 				666CA8A22ABD5FE00063AE32 /* Products */,
+				E94E06ACCE5BA0286EEEBC40 /* Pods */,
+				E43B17F1EF8A608715621FDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,6 +239,24 @@
 			path = PlanVC;
 			sourceTree = "<group>";
 		};
+		E43B17F1EF8A608715621FDE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45E454D1F9606A516B83962F /* Pods_TravelMaker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E94E06ACCE5BA0286EEEBC40 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A253CEA8E3FBF91DC007D99D /* Pods-TravelMaker.debug.xcconfig */,
+				5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -239,9 +264,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 666CA8B52ABD5FE10063AE32 /* Build configuration list for PBXNativeTarget "TravelMaker" */;
 			buildPhases = (
+				0B5921D2265FDF3B941E9F56 /* [CP] Check Pods Manifest.lock */,
 				666CA89D2ABD5FE00063AE32 /* Sources */,
 				666CA89E2ABD5FE00063AE32 /* Frameworks */,
 				666CA89F2ABD5FE00063AE32 /* Resources */,
+				B6BF0302B8BC8EE09E79F3EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -335,6 +362,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B5921D2265FDF3B941E9F56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TravelMaker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6BF0302B8BC8EE09E79F3EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravelMaker/Pods-TravelMaker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravelMaker/Pods-TravelMaker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravelMaker/Pods-TravelMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		666CA89D2ABD5FE00063AE32 /* Sources */ = {
@@ -492,6 +561,7 @@
 		};
 		666CA8B62ABD5FE10063AE32 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A253CEA8E3FBF91DC007D99D /* Pods-TravelMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -519,6 +589,7 @@
 		};
 		666CA8B72ABD5FE10063AE32 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
