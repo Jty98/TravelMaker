@@ -46,6 +46,16 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>NMapsGeometry.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
+		<key>NMapsMap.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
 		<key>Pods-TravelMaker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
