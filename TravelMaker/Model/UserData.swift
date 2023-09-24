@@ -13,3 +13,9 @@ struct UserData{
     let name: String
     let email: String
 }
+
+struct DataLoad{
+    static var profile: UIImage?
+    static var name: String = ""
+    static var email: String = ""
+}
