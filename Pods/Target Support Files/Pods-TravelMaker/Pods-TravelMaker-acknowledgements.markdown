@@ -849,6 +849,18 @@ SOFTWARE.
    limitations under the License.
 
 
+## NMapsGeometry
+
+Copyright © 2018 NAVER Corp.
+All rights reserved.
+
+
+## NMapsMap
+
+Copyright © 2018 NAVER Corp.
+All rights reserved.
+
+
 ## SDWebImage
 
 Copyright (c) 2009-2020 Olivier Poitrey rs@dailymotion.com

@@ -5,10 +5,12 @@ target 'TravelMaker' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+
   # Pods for TravelMaker
 pod 'DropDown'
 pod 'SDWebImage/MapKit'
 pod 'GoogleSignIn'
 pod 'SideMenu'
+pod 'NMapsMap'
 
 end

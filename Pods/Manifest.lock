@@ -14,6 +14,9 @@ PODS:
     - AppAuth/Core (~> 1.6)
     - GTMSessionFetcher/Core (< 4.0, >= 1.5)
   - GTMSessionFetcher/Core (3.1.1)
+  - NMapsGeometry (1.0.1)
+  - NMapsMap (3.17.0):
+    - NMapsGeometry
   - SDWebImage/Core (5.18.2)
   - SDWebImage/MapKit (5.18.2):
     - SDWebImage/Core
@@ -22,6 +25,7 @@ PODS:
 DEPENDENCIES:
   - DropDown
   - GoogleSignIn
+  - NMapsMap
   - SDWebImage/MapKit
   - SideMenu
 
@@ -32,6 +36,8 @@ SPEC REPOS:
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
+    - NMapsGeometry
+    - NMapsMap
     - SDWebImage
     - SideMenu
 
@@ -41,9 +47,11 @@ SPEC CHECKSUMS:
   GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
   GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
   GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
+  NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
+  NMapsMap: a5b909a31b6f3d27a670f6eb2ddc913c38975474
   SDWebImage: c0de394d7cf7f9838aed1fd6bb6037654a4572e4
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 98f3e2bd250a6047cb948d5b7c01d7192936104a
+PODFILE CHECKSUM: 38f1607f16fa1f11032c6d21bcd6815a28b25739
 
 COCOAPODS: 1.12.1
