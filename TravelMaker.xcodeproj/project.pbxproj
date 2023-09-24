@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173B9B172AC03D15009305F7 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B162AC03D15009305F7 /* Regex.swift */; };
 		6617985C2ABD642D005300BE /* SearchResultSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985B2ABD642D005300BE /* SearchResultSB.storyboard */; };
 		6617985E2ABD6441005300BE /* MapSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985D2ABD6441005300BE /* MapSB.storyboard */; };
 		661798602ABD644B005300BE /* LensSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985F2ABD644B005300BE /* LensSB.storyboard */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		173B9B162AC03D15009305F7 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		45E454D1F9606A516B83962F /* Pods_TravelMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMaker.release.xcconfig"; path = "Target Support Files/Pods-TravelMaker/Pods-TravelMaker.release.xcconfig"; sourceTree = "<group>"; };
 		6617985B2ABD642D005300BE /* SearchResultSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultSB.storyboard; sourceTree = "<group>"; };
@@ -151,16 +153,17 @@
 		666CA8A32ABD5FE00063AE32 /* TravelMaker */ = {
 			isa = PBXGroup;
 			children = (
+				666CA8AA2ABD5FE00063AE32 /* Main.storyboard */,
 				661798632ABD6E7D005300BE /* Model */,
 				666CA8B82ABD60310063AE32 /* StoryBoard */,
 				666CA8B92ABD60440063AE32 /* ViewController */,
 				666CA8A42ABD5FE00063AE32 /* AppDelegate.swift */,
 				666CA8A62ABD5FE00063AE32 /* SceneDelegate.swift */,
-				666CA8AA2ABD5FE00063AE32 /* Main.storyboard */,
 				666CA8AD2ABD5FE10063AE32 /* Assets.xcassets */,
 				666CA8AF2ABD5FE10063AE32 /* LaunchScreen.storyboard */,
 				666CA8B22ABD5FE10063AE32 /* Info.plist */,
 				66663CCE2AC02C5E004C90C8 /* GoogleService-Info.plist */,
+				173B9B162AC03D15009305F7 /* Regex.swift */,
 			);
 			path = TravelMaker;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				666CA8A72ABD5FE00063AE32 /* SceneDelegate.swift in Sources */,
 				661798672ABD6FC1005300BE /* LensViewController.swift in Sources */,
 				666CA8CB2ABD61090063AE32 /* MapViewController.swift in Sources */,
+				173B9B172AC03D15009305F7 /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
