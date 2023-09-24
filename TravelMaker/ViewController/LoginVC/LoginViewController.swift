@@ -6,7 +6,10 @@
 //
 
 import UIKit
+import FirebaseCore // 솔직히 뭔지 모름
 import FirebaseAuth // firebase 로그인기능 활성화
+import GoogleSignIn // google 로그인기능 활성화
+
 
 class LoginViewController: UIViewController {
     
@@ -16,7 +19,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var kakaoButton: UIButton!
-    
     
 
     override func viewDidLoad() {
@@ -33,6 +35,10 @@ class LoginViewController: UIViewController {
 //        kakaoButton.layer.borderColor = UIColor.gray.cgColor // 테두리 색상
 //        kakaoButton.layer.cornerRadius = 10.0 // 테두리 둥글기
 
+        // 기존에 로그인한 경우에 바로 페이지 이동하기
+        checkLoginGoogleStatus()
+        checkLoginEmailStatus()
+        
         // 키보드 화면가림 해결 함수
         setKeyboardEvent()
 
@@ -104,6 +110,13 @@ class LoginViewController: UIViewController {
     @IBAction func btnSignup(_ sender: UIButton) {
     }
     
+    @IBAction func TestButton(_ sender: UIButton) {
+        self.transitionToHome()
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    
     // 로그인 성공시 페이지 이동하는 함수
     func transitionToHome(){
         print("1")
@@ -114,4 +127,117 @@ class LoginViewController: UIViewController {
 
     
 } // LoginViewController
+
+extension LoginViewController {
+    // 기존 로그인 상태 확인
+    func checkLoginGoogleStatus() {
+        GIDSignIn.sharedInstance.restorePreviousSignIn() { user, error in
+            if error != nil || user == nil {
+                // 비로그인 상태
+                print("No Sign IN")
+            } else {
+                // 로그인 상태
+                guard let user = user else { return }
+                guard let profile = user.profile else { return }
+                // 유저 데이터 로드
+                self.loadUserData(profile)
+            }
+        }
+    }
+    func checkLoginEmailStatus() {
+        if Auth.auth().currentUser != nil{
+            self.transitionToHome()
+        }
+    }
+    
+    // 구글 로그인
+    func googleLogin() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Google Sign In configration object 생성
+        let config = GIDConfiguration(clientID: clientID)
+
+        // Sign In기능을 활성화하고 그 화면을 self에 띄우는 과정
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+            guard error == nil else{
+                // 로그인 실패시
+                let popup = UIAlertController(title: "로그인 실패", message: "다시 로그인해주세요", preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .default)
+                popup.addAction(action)
+                self.present(popup, animated: true)
+                return
+            }
+            // 로그인 성공시
+            guard let user = result?.user else { return }
+            guard let profile = user.profile else { return }
+            // 유저 데이터 로드
+            self.loadUserData(profile)
+
+            // 인증을 해도 계정은 따로 등록을 해주어야 한다.
+            // 구글 인증 토큰 받아서 -> 사용자 정보 토큰 생성 -> 파이어베이스 인증에 등록
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString
+            else {
+                // ...
+                return
+            }
+
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
+            // 파베 로그인되는 부분
+            Auth.auth().signIn(with: credential) { result, error in
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    
+    
+    // 유저 데이터 전달
+    func loadUserData(_ profile: GIDProfileData) {
+        let emailAddress = profile.email
+        let fullName = profile.name
+        let profilePicUrl = profile.imageURL(withDimension: 180)
+
+        // 이미지 다운로드
+        if let profilePicUrl = profilePicUrl {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: profilePicUrl) {
+                    if let image = UIImage(data: data) {
+                        // UI는 main thread에서만 접근 가능
+                        DispatchQueue.main.async {
+                            let data = UserData(profile: image, name: fullName, email: emailAddress)
+//                            let board = UIStoryboard(name: "MyPage", bundle: nil)
+//                            // 데이터를 전달할 뷰 컨트롤러에 설정
+//                            guard let nextVC = board.instantiateViewController(withIdentifier: "MyPage") as? SdViewController else { return }
+//                            nextVC.userData = data
+
+                            self.transitionToHome()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+
+    // 마이페이지 이동
+//    func moveMyPage(_ data:UserData){
+//        let board = UIStoryboard(name: "MyPage", bundle: nil)
+//        guard let nextVC = board.instantiateViewController(withIdentifier: "MyPage") as? SdViewController else { return }
+//        nextVC.userData = data
+//        nextVC.modalTransitionStyle = .coverVertical
+//        nextVC.modalPresentationStyle = .overFullScreen
+//        self.present(nextVC, animated: true)
+//    }
+   
+}
+
+extension LoginViewController {
+    @IBAction func clickGoogleLogin(_ sender: UIButton){
+        googleLogin()
+    }
+}
 

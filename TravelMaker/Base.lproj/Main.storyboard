@@ -80,6 +80,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wog-Jj-zmz"/>
+                                    <action selector="clickGoogleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5W4-B7-4n0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="367-de-sm5">
@@ -89,6 +90,15 @@
                                 <buttonConfiguration key="configuration" style="filled" image="kakao_login_medium_narrow"/>
                                 <connections>
                                     <action selector="btnKakao:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mim-CS-uuX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0r-zx-Bq9">
+                                <rect key="frame" x="144" y="409" width="98" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="테스트버튼"/>
+                                <connections>
+                                    <action selector="TestButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ILc-ln-ffq"/>
                                 </connections>
                             </button>
                         </subviews>
