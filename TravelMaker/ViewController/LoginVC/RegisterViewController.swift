@@ -34,6 +34,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
     
+    // 연령선택 띄우는 라벨
+    @IBOutlet weak var lblDatePicker: UILabel!
+    // 데이트피커
+    private let datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
+        datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.addTarget(RegisterViewController.self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        return datePicker
+    }()
+    
+    // MBTI 버튼 변수들
+    @IBOutlet weak var btnICoror: UIButton!
+    @IBOutlet weak var btnNCoror: UIButton!
+    @IBOutlet weak var btnFCoror: UIButton!
+    @IBOutlet weak var btnPCoror: UIButton!
+    
+    @IBOutlet weak var btnECoror: UIButton!
+    @IBOutlet weak var btnSCoror: UIButton!
+    @IBOutlet weak var btnTCoror: UIButton!
+    @IBOutlet weak var btnJCoror: UIButton!
     
     // DropDown에서 선택된 이메일 주소를 저장하는 변수
     var selectedDropDwonEmail = ""
@@ -48,6 +70,26 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     var maleSelected = true
     var femaleSelected = false
     
+    // MBTI 버튼 Status
+    var selectedI = false
+    var selectedN = false
+    var selectedF = false
+    var selectedP = false
+    
+    var selectedE = false
+    var selectedS = false
+    var selectedT = false
+    var selectedJ = false
+    
+    // 넘겨줄 정보들 저장할 변수들
+    var uEmail = ""
+    var uPassword = ""
+    var uName = ""
+    var uGender = ""
+    var uAge = ""
+    var uMBTI = ""
+    var uMBTIArray = [String]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +98,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         initUI()
         setDropDown()
         
+        // 데이트피커 설정
+        //        setupDatePicker()
+        
         // Label 초기화
         lblIdMessage.text = ""
         lblEmailMessage.text = ""
         lblPasswordMessage.text = ""
         lblVerifyMessage.text = ""
         lblNameMessage.text = ""
+        lblDatePicker.text = ""
+        
+        uMBTI = ""
         
         // UITextFieldDelegate를 설정하여 텍스트 필드 입력을 모니터링
         tfId.delegate = self
@@ -103,7 +151,65 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         self.view.frame.origin.y = 0 // 0으로 다시 보내서 다시 원상복구
     }
     
-    // DropDown초기설정
+    // 데이트피커 초기설정
+    private func setupDatePicker() {
+        //        lblDatePicker.inputView = datePicker
+    }
+    
+    @objc private func dateChanged(_ sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd" // 원하는 날짜 형식으로 설정
+        lblDatePicker.text = dateFormatter.string(from: sender.date)
+    }
+    
+    
+    // 데이트피커 띄우기 버튼
+    @available(iOS 14.0, *)
+    @IBAction func showDatePicker(_ sender: UIButton) {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = Locale(identifier: "ko-KR")
+        
+        let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
+            let selectedDate = datePicker.date
+            let age = self.calculateAge(from: selectedDate)
+            self.uAge = String(age)
+            self.lblDatePicker.text = "\(age)세"
+        }
+        alertController.view.addSubview(datePicker)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+}
+
+       
+    // 만나이 구하기 함수
+    func calculateAge(from selectedDate: Date) -> Int {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        
+        let selectedYear = calendar.component(.year, from: selectedDate)
+        let currentYear = calendar.component(.year, from: currentDate)
+        
+        let age = currentYear - selectedYear
+        
+        // 만 나이를 계산하는 로직 추가
+        if let selectedDateThisYear = calendar.date(bySetting: .year, value: currentYear, of: selectedDate) {
+            if selectedDateThisYear > currentDate {
+                return age - 1
+            }
+        }
+        return age
+    }
+
+
+    
+    // DropDown 초기설정
     func initUI(){
         // DropDown View 배경
         dropView.backgroundColor = UIColor.white
@@ -256,7 +362,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         femaleSelected = false
         
         maleButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-        femaleButton.setImage(UIImage(systemName: "square"), for: .normal)    }
+        femaleButton.setImage(UIImage(systemName: "square"), for: .normal)
+        uGender = "남성"
+    }
     
     // 여자 체크
     @IBAction func btnFemale(_ sender: UIButton) {
@@ -265,8 +373,165 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         maleButton.setImage(UIImage(systemName: "square"), for: .normal)
         femaleButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        uGender = "여성"
     } // == 성별체크부분 ==
     
+    
+    // == MBTI 부분 ==
+    @IBAction func btnI(_ sender: UIButton) {
+        // 버튼 I를 눌렀을 때
+        selectedI = true
+        selectedE = false
+            
+        btnICoror.backgroundColor = UIColor.lightGray
+        btnECoror.backgroundColor = UIColor.systemBackground
+        updateSelectedCharacters(character: "I") // 버튼 눌리면 문자열 I를 추가하는 함수
+    }
+    @IBAction func btnE(_ sender: UIButton) {
+        // 버튼 E를 눌렀을 때
+        selectedI = false
+        selectedE = true
+            
+        btnICoror.backgroundColor = UIColor.systemBackground
+        btnECoror.backgroundColor = UIColor.lightGray
+        updateSelectedCharacters(character: "E")
+    }
+    
+    @IBAction func btnN(_ sender: UIButton) {
+        // 버튼 N를 눌렀을 때
+        selectedN = true
+        selectedS = false
+            
+        btnNCoror.backgroundColor = UIColor.lightGray
+        btnSCoror.backgroundColor = UIColor.systemBackground
+        updateSelectedCharacters(character: "N")
+    }
+    @IBAction func btnS(_ sender: UIButton) {
+        // 버튼 N를 눌렀을 때
+        selectedN = false
+        selectedS = true
+            
+        btnNCoror.backgroundColor = UIColor.systemBackground
+        btnSCoror.backgroundColor = UIColor.lightGray
+        updateSelectedCharacters(character: "S")
+    }
+    
+    @IBAction func btnF(_ sender: UIButton) {
+        // 버튼 F를 눌렀을 때
+        selectedT = false
+        selectedF = true
+        
+        btnTCoror.backgroundColor = UIColor.systemBackground
+        btnFCoror.backgroundColor = UIColor.lightGray
+        updateSelectedCharacters(character: "F")
+    }
+    @IBAction func btnT(_ sender: UIButton) {
+        // 버튼 T를 눌렀을 때
+        selectedT = true
+        selectedF = false
+        
+        btnTCoror.backgroundColor = UIColor.lightGray
+        btnFCoror.backgroundColor = UIColor.systemBackground
+        updateSelectedCharacters(character: "T")
+    }
+    
+    @IBAction func btnP(_ sender: UIButton) {
+        // 버튼 P를 눌렀을 때
+        selectedP = true
+        selectedJ = false
+        
+        btnPCoror.backgroundColor = UIColor.lightGray
+        btnJCoror.backgroundColor = UIColor.systemBackground
+        updateSelectedCharacters(character: "P")
+    }
+    @IBAction func btnJ(_ sender: UIButton) {
+        // 버튼 P를 눌렀을 때
+        selectedP = false
+        selectedJ = true
+        
+        btnPCoror.backgroundColor = UIColor.systemBackground
+        btnJCoror.backgroundColor = UIColor.lightGray
+        updateSelectedCharacters(character: "J")
+    }
+    
+    // 선택된 문자열 업데이트
+     func updateSelectedCharacters(character: String) {
+         if uMBTIArray.contains(character) {
+             // 이미 선택된 경우 문자열에서 제거
+             uMBTIArray = uMBTIArray.filter { $0 != character }
+         } else {
+             // 선택되지 않은 경우 문자열에 추가
+             uMBTIArray.append(character)
+         }
+//         uAge = String(uMBTIArray)
+         uAge = uMBTIArray.joined()
 
-
+         // 선택된 문자열을 출력
+         print("Selected Characters: \(uMBTIArray)")
+         print("Selected MBTI: \(uAge)")
+     }
+    
+    
+    // 회원가입 버튼
+    @IBAction func signUpAction(_ sender: UIButton) {
+        let password = tfPassword.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        let name = tfName.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        
+        
+        // user collection에 insert하기위해 인스턴스 생성
+        let signUpModel = FirebaseSignUpModel()
+        
+        
+        if lblIdMessage.text == "사용 가능한 ID" &&
+            lblEmailMessage.text == "유효한 도메인" &&
+            lblPasswordMessage.text == "유효한 비밀번호" &&
+            lblVerifyMessage.text == "비밀번호가 일치합니다." &&
+            lblNameMessage.text == "사용 가능한 이름입니다." &&
+            uGender != "" &&
+            uAge != ""{
+            
+            // regex조건을 충족하면 Firebase 회원가입
+            Auth.auth().createUser(withEmail: emailAddres, password: password) { (authResult, error) in
+                if let error = error {
+                    print("회원가입 실패: \(error.localizedDescription)")
+                    //                   AppSnackBar.make(in: self.view,
+                    //                                    message: "회원가입 조건을 충족해주세요.",
+                    //                                    duration: .lengthLong)
+                    //                       .setAction(with: "OK",
+                    //                                  action: {
+                    //                   }).show()
+                    
+                }
+                if let user = authResult?.user {
+                    print("\(user.email ?? "") 회원가입 성공!")
+                    // 회원가입 성공 후 처리할 작업
+                    let signup = signUpModel.signUpUser(userId: user.uid, email: self.emailAddres, password: password, name: name, gender: self.uGender, age: self.uAge, MBTI: self.uMBTI)
+                    
+                    if signup{
+                        let resultAlert = UIAlertController(title: "회원가입 성공", message: "환영합니다\(name)님!", preferredStyle: .actionSheet)
+                        let onAction = UIAlertAction(title: "홈화면 가기", style: .default, handler: { ACTION in
+                            // 현재의 뷰pop시키고 root뷰로 이동
+                            if let navigationController = self.navigationController {
+                                navigationController.popToRootViewController(animated: true)
+                            }
+                        })
+                        resultAlert.addAction(onAction)
+                        self.present(resultAlert, animated: true)
+                        
+                    }
+                }
+            }
+        }else{
+            print("회원가입 조건 충족 실패")
+            //            AppSnackBar.make(in: self.view,
+            //                             message: "회원가입 조건을 충족해주세요.",
+            //                             duration: .lengthLong)
+            //                .setAction(with: "OK",
+            //                           action: {
+            //            }).show()
+            //        }
+        }
+        
+    }
+    
 } // RegisterViewController
