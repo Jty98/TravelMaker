@@ -14,10 +14,10 @@
 		173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B752AC129CA009305F7 /* SignUpModel.swift */; };
 		6617985C2ABD642D005300BE /* SearchResultSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985B2ABD642D005300BE /* SearchResultSB.storyboard */; };
 		6617985E2ABD6441005300BE /* MapSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985D2ABD6441005300BE /* MapSB.storyboard */; };
-		661798602ABD644B005300BE /* LensSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985F2ABD644B005300BE /* LensSB.storyboard */; };
+		661798602ABD644B005300BE /* HighlightSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985F2ABD644B005300BE /* HighlightSB.storyboard */; };
 		661798622ABD6457005300BE /* PlanSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 661798612ABD6457005300BE /* PlanSB.storyboard */; };
 		661798652ABD6E87005300BE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661798642ABD6E87005300BE /* Constant.swift */; };
-		661798672ABD6FC1005300BE /* LensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661798662ABD6FC1005300BE /* LensViewController.swift */; };
+		661798672ABD6FC1005300BE /* HighlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661798662ABD6FC1005300BE /* HighlightViewController.swift */; };
 		661798692ABD710B005300BE /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661798682ABD710B005300BE /* PlanViewController.swift */; };
 		66663CCF2AC02C5E004C90C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66663CCE2AC02C5E004C90C8 /* GoogleService-Info.plist */; };
 		66663CD22AC02C89004C90C8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 66663CD12AC02C89004C90C8 /* FirebaseAnalytics */; };
@@ -71,10 +71,10 @@
 		5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMaker.release.xcconfig"; path = "Target Support Files/Pods-TravelMaker/Pods-TravelMaker.release.xcconfig"; sourceTree = "<group>"; };
 		6617985B2ABD642D005300BE /* SearchResultSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultSB.storyboard; sourceTree = "<group>"; };
 		6617985D2ABD6441005300BE /* MapSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapSB.storyboard; sourceTree = "<group>"; };
-		6617985F2ABD644B005300BE /* LensSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LensSB.storyboard; sourceTree = "<group>"; };
+		6617985F2ABD644B005300BE /* HighlightSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HighlightSB.storyboard; sourceTree = "<group>"; };
 		661798612ABD6457005300BE /* PlanSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlanSB.storyboard; sourceTree = "<group>"; };
 		661798642ABD6E87005300BE /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		661798662ABD6FC1005300BE /* LensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensViewController.swift; sourceTree = "<group>"; };
+		661798662ABD6FC1005300BE /* HighlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightViewController.swift; sourceTree = "<group>"; };
 		661798682ABD710B005300BE /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		66663CCE2AC02C5E004C90C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		666CA8A12ABD5FE00063AE32 /* TravelMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +202,7 @@
 				666CA8D02ABD614F0063AE32 /* MainPageSB.storyboard */,
 				6617985B2ABD642D005300BE /* SearchResultSB.storyboard */,
 				6617985D2ABD6441005300BE /* MapSB.storyboard */,
-				6617985F2ABD644B005300BE /* LensSB.storyboard */,
+				6617985F2ABD644B005300BE /* HighlightSB.storyboard */,
 				661798612ABD6457005300BE /* PlanSB.storyboard */,
 			);
 			path = StoryBoard;
@@ -215,7 +215,7 @@
 				666CA8BB2ABD605B0063AE32 /* MainVC */,
 				666CA8BC2ABD60610063AE32 /* SearchResultVC */,
 				666CA8BF2ABD607D0063AE32 /* MapVC */,
-				666CA8BD2ABD606C0063AE32 /* LensVC */,
+				666CA8BD2ABD606C0063AE32 /* HighlightVC */,
 				666CA8C02ABD60850063AE32 /* PlanVC */,
 			);
 			path = ViewController;
@@ -246,12 +246,12 @@
 			path = SearchResultVC;
 			sourceTree = "<group>";
 		};
-		666CA8BD2ABD606C0063AE32 /* LensVC */ = {
+		666CA8BD2ABD606C0063AE32 /* HighlightVC */ = {
 			isa = PBXGroup;
 			children = (
-				661798662ABD6FC1005300BE /* LensViewController.swift */,
+				661798662ABD6FC1005300BE /* HighlightViewController.swift */,
 			);
-			path = LensVC;
+			path = HighlightVC;
 			sourceTree = "<group>";
 		};
 		666CA8BF2ABD607D0063AE32 /* MapVC */ = {
@@ -383,7 +383,7 @@
 				6617985E2ABD6441005300BE /* MapSB.storyboard in Resources */,
 				66663CCF2AC02C5E004C90C8 /* GoogleService-Info.plist in Resources */,
 				666CA8B12ABD5FE10063AE32 /* LaunchScreen.storyboard in Resources */,
-				661798602ABD644B005300BE /* LensSB.storyboard in Resources */,
+				661798602ABD644B005300BE /* HighlightSB.storyboard in Resources */,
 				6617985C2ABD642D005300BE /* SearchResultSB.storyboard in Resources */,
 				666CA8AE2ABD5FE10063AE32 /* Assets.xcassets in Resources */,
 				666CA8D12ABD614F0063AE32 /* MainPageSB.storyboard in Resources */,
@@ -452,7 +452,7 @@
 				173B9B6A2AC07C68009305F7 /* SideMenuModel.swift in Sources */,
 				666CA8A72ABD5FE00063AE32 /* SceneDelegate.swift in Sources */,
 				173B9B702AC089A3009305F7 /* UserData.swift in Sources */,
-				661798672ABD6FC1005300BE /* LensViewController.swift in Sources */,
+				661798672ABD6FC1005300BE /* HighlightViewController.swift in Sources */,
 				666CA8CB2ABD61090063AE32 /* MapViewController.swift in Sources */,
 				173B9B172AC03D15009305F7 /* Regex.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LensViewController: UIViewController {
+class HighlightViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
