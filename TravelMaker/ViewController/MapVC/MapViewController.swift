@@ -5,59 +5,96 @@
 //  Created by ms k on 2023/09/22.
 //
 
-
+//
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<원본이자 우리가 보여줄 코드.
 import UIKit
 import CoreLocation
 import NMapsMap
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
     
-//    var naverMapView = NMFNaverMapView()
-    //출발지 마커
     let marker = NMFMarker()
-    var mapView = NMFMapView()
-    var naverMapView = NMFNaverMapView()
-
+//    var mapView : NMFMapView!
+    private lazy var naverMapView: NMFMapView = {
+            let mapView = NMFMapView() // 지도 객체 생성
+            mapView.allowsZooming = true // 줌 가능
+            mapView.logoInteractionEnabled = false // 로고 터치 불가능
+            mapView.allowsScrolling = true // 스크롤 가능
+            return mapView
+    }()
+    var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
+        return manager
+        }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //<<<MapView>>>
         //맵띄우기
-        mapView = NMFMapView(frame: view.frame)
+//        mapView = NMFMapView(frame: CGRect(x: 0, y: 191, width: 393, height: 393))
+//        view.addSubview(mapView)
+        naverMapView = NMFMapView(frame: CGRect(x: 0, y: 191, width: 393, height: 393))
+        view.addSubview(naverMapView)
         //줌레벨
-        mapView.zoomLevel = 12
+//        mapView.zoomLevel = 12
+        naverMapView.zoomLevel = 12
         
 
-        mapView.positionMode = .direction
-        mapView.positionMode = .compass
+//        mapView.positionMode = .direction
+//        mapView.positionMode = .compass
 //        let cameraposition = mapView.cameraPosition
 //        print(cameraposition)
         
         //mapType지정
-        mapView.mapType = .basic
-        
-        //<<<naverMapView>>>
-        //naverMapView = NMFNaverMapView(frame: view.frame)
-        //naverMapView.showCompass = true
-        //naverMapView.showLocationButton = true
-        //naverMapView.mapView.positionMode = .compass
-
+        naverMapView.mapType = .basic
         
         //함수 불러오기
         setCamera()
         setMarker()
         setLimitZoom()
 //        setPath()
-        
-        view.addSubview(mapView)
+       
+    }//<<<<<<<<<<<viewDidLoad>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<Button>>>>>>>>>>>>
+    @IBAction func getCurrentLocation(_ sender: UIButton) {
+        locationManager.startUpdatingLocation()
     }
+    
+    @IBAction func zoomIn(_ sender: UIButton) {
+        naverMapView.zoomLevel += 1
+    }
+    @IBAction func zoomOut(_ sender: UIButton) {
+        naverMapView.zoomLevel -= 1
+    }
+    //<<<<<<<<<<<<<<ButtonEnd>>>>>>>>>>
+    
+    //location권한획득
+    func locationAllow(){
+        switch locationManager.authorizationStatus {
+            case .authorizedWhenInUse, .authorizedAlways:
+                print("권한 있음")
+            case .notDetermined, .restricted, .denied:
+                print("권한 없음")
+                locationManager.requestWhenInUseAuthorization()
+            default:
+                break;
+        }
+    }
+    
+    
+    
+    
+    
+    
     //카메라 위치
     func setCamera() {
         let camPosition =  NMGLatLng(lat: 33.507103403, lng:126.492794153)
         let cameraUpdate = NMFCameraUpdate(scrollTo: camPosition)
-        mapView.moveCamera(cameraUpdate)
+        naverMapView.moveCamera(cameraUpdate)
     }
     //마커
     func setMarker() {
@@ -66,7 +103,7 @@ class MapViewController: UIViewController {
         marker.iconTintColor = UIColor.red
         marker.width = 50
         marker.height = 60
-        marker.mapView = mapView
+        marker.mapView = naverMapView
         
         // 정보창 생성
         let infoWindow = NMFInfoWindow()
@@ -81,10 +118,10 @@ class MapViewController: UIViewController {
     //최소, 최대 줌 레벨 , 최대 영역 제한
     func setLimitZoom(){
         //최대 최소 줌레벨
-        mapView.minZoomLevel = 9.0
-        mapView.maxZoomLevel = 18.0
+        naverMapView.minZoomLevel = 9.0
+        naverMapView.maxZoomLevel = 18.0
         //제주도 범위 제한
-        mapView.extent = NMGLatLngBounds(southWestLat: 33.08, southWestLng: 126.04, northEastLat: 33.65, northEastLng: 127.15)
+        naverMapView.extent = NMGLatLngBounds(southWestLat: 33.08, southWestLng: 126.04, northEastLat: 33.65, northEastLng: 127.15)
     }
   
     //<<<<<<<<<<<<<<<<<<길만들어주고 싶을 때 사용>>>>>>>>>>>>>>>>>>>>
@@ -108,7 +145,7 @@ class MapViewController: UIViewController {
     //지도에 콘텐츠 뜰 때 패딩값 지정
     //<<<<<<<<<<<<<<<<<<<<<<<추후 이벤트 추가 예정>>>>>>>>>>>>>>>>>>>>>>>>>
     func setPadding(){
-        mapView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 200, right: 0)
+        naverMapView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 200, right: 0)
     }
     
    
@@ -118,42 +155,7 @@ class MapViewController: UIViewController {
 
 
 
-//import UIKit
-//import CoreLocation
-//import NMapsMap
-//
-//class MainViewController: UIViewController, CLLocationManagerDelegate {
-//    
-//    var locationManager = CLLocationManager()
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        /*-------위치 정보 가져오기--------*/
-//        //delegate설정
-//        locationManager.delegate = self
-//        //거리정확도 설정
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        //사용자에게 허용받기 alert띄우기
-//        locationManager.requestWhenInUseAuthorization()
-//        
-//        //위치서비스 켜진상태
-//        if CLLocationManager.locationServicesEnabled(){
-//            print("위치서비스ON")
-//            locationManager.startUpdatingLocation()//위치정보 받아오기
-//            print(locationManager.location?.coordinate)
-//        }else{
-//            print("위치서비스OFF")
-//        }
-//        
-//        //맵띄우기
-//        let mapView = NMFMapView(frame: view.frame)
-//        view.addSubview(mapView)
-//        
-//        
-//    }
-//
-//    
-//}
+
 
 
 
