@@ -11,10 +11,8 @@
 		173B9B662AC07B08009305F7 /* SideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B652AC07B08009305F7 /* SideTableViewController.swift */; };
 		173B9B682AC07C1F009305F7 /* SideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B672AC07C1F009305F7 /* SideViewController.swift */; };
 		173B9B6A2AC07C68009305F7 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B692AC07C68009305F7 /* SideMenuModel.swift */; };
-		173B9B6C2AC07C9B009305F7 /* SideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B6B2AC07C9B009305F7 /* SideTableViewCell.swift */; };
 		173B9B6E2AC08743009305F7 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B6D2AC08743009305F7 /* SideMenuViewController.swift */; };
 		173B9B702AC089A3009305F7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B6F2AC089A3009305F7 /* UserData.swift */; };
-		173B9B722AC0958F009305F7 /* SdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B712AC0958F009305F7 /* SdViewController.swift */; };
 		6617985C2ABD642D005300BE /* SearchResultSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985B2ABD642D005300BE /* SearchResultSB.storyboard */; };
 		6617985E2ABD6441005300BE /* MapSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985D2ABD6441005300BE /* MapSB.storyboard */; };
 		661798602ABD644B005300BE /* LensSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985F2ABD644B005300BE /* LensSB.storyboard */; };
@@ -69,10 +67,8 @@
 		173B9B652AC07B08009305F7 /* SideTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTableViewController.swift; sourceTree = "<group>"; };
 		173B9B672AC07C1F009305F7 /* SideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideViewController.swift; sourceTree = "<group>"; };
 		173B9B692AC07C68009305F7 /* SideMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
-		173B9B6B2AC07C9B009305F7 /* SideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTableViewCell.swift; sourceTree = "<group>"; };
 		173B9B6D2AC08743009305F7 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		173B9B6F2AC089A3009305F7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		173B9B712AC0958F009305F7 /* SdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdViewController.swift; sourceTree = "<group>"; };
 		45E454D1F9606A516B83962F /* Pods_TravelMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMaker.release.xcconfig"; path = "Target Support Files/Pods-TravelMaker/Pods-TravelMaker.release.xcconfig"; sourceTree = "<group>"; };
 		6617985B2ABD642D005300BE /* SearchResultSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultSB.storyboard; sourceTree = "<group>"; };
@@ -138,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173B9B732AC0B097009305F7 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				173B9B6D2AC08743009305F7 /* SideMenuViewController.swift */,
+				173B9B692AC07C68009305F7 /* SideMenuModel.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		661798632ABD6E7D005300BE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +173,7 @@
 		666CA8A32ABD5FE00063AE32 /* TravelMaker */ = {
 			isa = PBXGroup;
 			children = (
-				666CA8AA2ABD5FE00063AE32 /* Main.storyboard */,
+				173B9B732AC0B097009305F7 /* SideMenu */,
 				661798632ABD6E7D005300BE /* Model */,
 				666CA8B82ABD60310063AE32 /* StoryBoard */,
 				666CA8B92ABD60440063AE32 /* ViewController */,
@@ -179,10 +184,6 @@
 				666CA8B22ABD5FE10063AE32 /* Info.plist */,
 				66663CCE2AC02C5E004C90C8 /* GoogleService-Info.plist */,
 				173B9B162AC03D15009305F7 /* Regex.swift */,
-				173B9B692AC07C68009305F7 /* SideMenuModel.swift */,
-				173B9B6B2AC07C9B009305F7 /* SideTableViewCell.swift */,
-				173B9B6D2AC08743009305F7 /* SideMenuViewController.swift */,
-				173B9B712AC0958F009305F7 /* SdViewController.swift */,
 			);
 			path = TravelMaker;
 			sourceTree = "<group>";
@@ -190,6 +191,7 @@
 		666CA8B82ABD60310063AE32 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				666CA8AA2ABD5FE00063AE32 /* Main.storyboard */,
 				666CA8D02ABD614F0063AE32 /* MainPageSB.storyboard */,
 				6617985B2ABD642D005300BE /* SearchResultSB.storyboard */,
 				6617985D2ABD6441005300BE /* MapSB.storyboard */,
@@ -433,7 +435,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				173B9B6C2AC07C9B009305F7 /* SideTableViewCell.swift in Sources */,
 				666CA8C22ABD60CC0063AE32 /* LoginViewController.swift in Sources */,
 				661798692ABD710B005300BE /* PlanViewController.swift in Sources */,
 				666CA8C82ABD60F20063AE32 /* SearchResultViewController.swift in Sources */,
@@ -450,7 +451,6 @@
 				661798672ABD6FC1005300BE /* LensViewController.swift in Sources */,
 				666CA8CB2ABD61090063AE32 /* MapViewController.swift in Sources */,
 				173B9B172AC03D15009305F7 /* Regex.swift in Sources */,
-				173B9B722AC0958F009305F7 /* SdViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

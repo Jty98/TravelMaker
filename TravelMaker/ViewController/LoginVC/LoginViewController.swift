@@ -36,8 +36,15 @@ class LoginViewController: UIViewController {
 //        kakaoButton.layer.cornerRadius = 10.0 // 테두리 둥글기
 
         // 기존에 로그인한 경우에 바로 페이지 이동하기
+        if Auth.auth().currentUser != nil{
+            print("로그인 됨", Auth.auth().currentUser?.uid as Any)
+            let Tabbar = storyboard?.instantiateViewController(identifier: Constants.storyboard.Tabbar) as? UITabBarController
+            print("go to tabbar")
+            view.window?.rootViewController = Tabbar
+        }else{
+            print("로그인 안됨", Auth.auth().currentUser?.uid as Any)
+        }
         checkLoginGoogleStatus()
-        checkLoginEmailStatus()
         
         // 키보드 화면가림 해결 함수
         setKeyboardEvent()
@@ -144,11 +151,6 @@ extension LoginViewController {
             }
         }
     }
-    func checkLoginEmailStatus() {
-        if Auth.auth().currentUser != nil{
-            self.transitionToHome()
-        }
-    }
     
     // 구글 로그인
     func googleLogin() {
@@ -192,6 +194,7 @@ extension LoginViewController {
         }
     }
     
+
     
     
     // 유저 데이터 전달
@@ -199,6 +202,26 @@ extension LoginViewController {
         let emailAddress = profile.email
         let fullName = profile.name
         let profilePicUrl = profile.imageURL(withDimension: 180)
+        
+        if let profilePicUrl = profile.imageURL(withDimension: 180) {
+            // URL에서 이미지 다운로드
+            if let data = try? Data(contentsOf: profilePicUrl) {
+                if let image = UIImage(data: data) {
+                    // 이미지를 성공적으로 다운로드 및 변환한 경우
+                    
+                    DataLoad.profile = image
+                    DataLoad.name = fullName
+                    DataLoad.email = emailAddress
+                }
+            }
+        }
+
+//        DataLoad.profile1 = emailAddress
+//        DataLoad.name1 = profile.name
+        
+        print("emailAddress = ", emailAddress)
+        print("fullName = ", fullName)
+        print("profilePicUrl = ", profilePicUrl)
 
         // 이미지 다운로드
         if let profilePicUrl = profilePicUrl {
@@ -207,11 +230,20 @@ extension LoginViewController {
                     if let image = UIImage(data: data) {
                         // UI는 main thread에서만 접근 가능
                         DispatchQueue.main.async {
-                            let data = UserData(profile: image, name: fullName, email: emailAddress)
+                            let userData = UserData(profile: image, name: fullName, email: emailAddress)
 //                            let board = UIStoryboard(name: "MyPage", bundle: nil)
 //                            // 데이터를 전달할 뷰 컨트롤러에 설정
 //                            guard let nextVC = board.instantiateViewController(withIdentifier: "MyPage") as? SdViewController else { return }
-//                            nextVC.userData = data
+                            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                                   if segue.identifier == "SideMenuSegue" {
+                                       if let sideMenuViewController = segue.destination as? SdViewController {
+                                           // 데이터를 설정
+                                           sideMenuViewController.userData = userData
+                                       }
+                                   }
+                               }
+                            
+//                            sideMenuViewController.userData = userData
 
                             self.transitionToHome()
                         }
@@ -220,6 +252,8 @@ extension LoginViewController {
             }
         }
     }
+    
+   
     
     
 
