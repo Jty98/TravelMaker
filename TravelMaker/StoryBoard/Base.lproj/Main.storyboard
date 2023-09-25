@@ -307,6 +307,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
                                     <color key="baseBackgroundColor" systemColor="systemGrayColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnEmailCheck:" destination="by2-Ir-p1K" eventType="touchUpInside" id="uAN-Xi-JN5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MBTI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iC3-Pl-J4f">
                                 <rect key="frame" x="16" y="669" width="167" height="25"/>
@@ -439,9 +442,9 @@
                         <outlet property="lblDatePicker" destination="hET-0S-3YY" id="bxU-o3-5EX"/>
                         <outlet property="lblEmailMessage" destination="7Pz-UB-JXk" id="8dd-Pg-jvT"/>
                         <outlet property="lblIdMessage" destination="pQD-DZ-401" id="TBH-x3-ubU"/>
-                        <outlet property="lblNameMessage" destination="uUY-Co-kDt" id="E2V-d9-0Rj"/>
-                        <outlet property="lblPasswordMessage" destination="lSw-Wk-wRM" id="824-Ai-3yR"/>
-                        <outlet property="lblVerifyMessage" destination="Aij-nN-ahD" id="kU9-fh-GlP"/>
+                        <outlet property="lblNameMessage" destination="lSw-Wk-wRM" id="eG8-oj-Pt4"/>
+                        <outlet property="lblPasswordMessage" destination="Aij-nN-ahD" id="vbg-vo-tCD"/>
+                        <outlet property="lblVerifyMessage" destination="uUY-Co-kDt" id="i5V-R2-bfG"/>
                         <outlet property="maleButton" destination="GMw-QA-x54" id="ziY-UV-Nkk"/>
                         <outlet property="tfEmailAddress" destination="AIL-Cf-qhq" id="NwF-g2-CIo"/>
                         <outlet property="tfId" destination="Sr9-qM-Xfa" id="Wh7-g4-Wap"/>
@@ -483,10 +486,10 @@
             </objects>
             <point key="canvasLocation" x="3518" y="-94"/>
         </scene>
-        <!--LensSB-->
+        <!--HighlightSB-->
         <scene sceneID="eYw-U0-ALR">
             <objects>
-                <viewControllerPlaceholder storyboardName="LensSB" id="ldr-Eg-tQZ" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="HighlightSB" id="ldr-Eg-tQZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="mJi-7b-HzM"/>
                     <navigationItem key="navigationItem" id="qTF-4p-Pw2"/>
                 </viewControllerPlaceholder>

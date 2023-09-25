@@ -162,6 +162,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         lblDatePicker.text = dateFormatter.string(from: sender.date)
     }
     
+    // 중복체크 버튼
+    @IBAction func btnEmailCheck(_ sender: UIButton) {
+        
+    }
+    
+    
+    
     
     // 데이트피커 띄우기 버튼
     @available(iOS 14.0, *)
@@ -280,6 +287,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         // 입력된 텍스트를 합처서 전체 이메일 주소를 저장
         emailAddres = "\(id)@\(domain)"
+        uEmail = emailAddres
         
         // regex클래스 인스턴스 생성
         let regexCheck = regex()
@@ -454,23 +462,50 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         updateSelectedCharacters(character: "J")
     }
     
-    // 선택된 문자열 업데이트
-     func updateSelectedCharacters(character: String) {
-         if uMBTIArray.contains(character) {
-             // 이미 선택된 경우 문자열에서 제거
-             uMBTIArray = uMBTIArray.filter { $0 != character }
-         } else {
-             // 선택되지 않은 경우 문자열에 추가
-             uMBTIArray.append(character)
-         }
-//         uAge = String(uMBTIArray)
-         uAge = uMBTIArray.joined()
-
-         // 선택된 문자열을 출력
-         print("Selected Characters: \(uMBTIArray)")
-         print("Selected MBTI: \(uAge)")
-     }
     
+    
+    // 선택된 문자열 업데이트
+    func updateSelectedCharacters(character: String) {
+        if character == "I" || character == "E" {
+            // I 또는 E가 선택된 경우, 먼저 해당 문자를 배열에서 제거
+            uMBTIArray.removeAll { $0 == "I" || $0 == "E" }
+        } else if character == "N" || character == "S" {
+            // N 또는 S가 선택된 경우, 먼저 해당 문자를 배열에서 제거
+            uMBTIArray.removeAll { $0 == "N" || $0 == "S" }
+        } else if character == "F" || character == "T" {
+            // F 또는 T가 선택된 경우, 먼저 해당 문자를 배열에서 제거
+            uMBTIArray.removeAll { $0 == "F" || $0 == "T" }
+        } else if character == "P" || character == "J" {
+            // P 또는 J가 선택된 경우, 먼저 해당 문자를 배열에서 제거
+            uMBTIArray.removeAll { $0 == "P" || $0 == "J" }
+        }
+        
+        // 선택된 문자열에 새 문자 추가
+        uMBTIArray.append(character)
+        
+        // 선택된 문자열을 MBTI 알파벳 순서로 정렬
+        uMBTIArray.sort { mbtiOrder($0) < mbtiOrder($1) }
+        
+        uMBTI = uMBTIArray.joined()
+
+        // 선택된 문자열을 출력
+        print("Selected Characters: \(uMBTIArray)")
+        print("Selected MBTI: \(uMBTI)")
+        print("Selected MBTI Count: \(uMBTI.count)")
+    }
+
+    // MBTI문자의 순서를 정렬해주는 함수
+    func mbtiOrder(_ character: String) -> Int {
+        let order = "IENSFTPJ"  // 순서 지정
+        for char in character {
+            if let index = order.firstIndex(of: char) {
+                return order.distance(from: order.startIndex, to: index)
+            }
+        }
+        return Int.max
+    }
+
+
     
     // 회원가입 버튼
     @IBAction func signUpAction(_ sender: UIButton) {
@@ -487,8 +522,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             lblPasswordMessage.text == "유효한 비밀번호" &&
             lblVerifyMessage.text == "비밀번호가 일치합니다." &&
             lblNameMessage.text == "사용 가능한 이름입니다." &&
-            uGender != "" &&
-            uAge != ""{
+            uGender != "" && // 성별이 선택 됐을 때
+            uAge != "" &&    // 연령이 선택 됐을때
+            uMBTI.count == 4 // MBTI 변수에 4개가 전부 선택됐을 때
+            {
             
             // regex조건을 충족하면 Firebase 회원가입
             Auth.auth().createUser(withEmail: emailAddres, password: password) { (authResult, error) in

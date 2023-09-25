@@ -54,31 +54,32 @@ class SideMenuViewController: UIViewController {
 extension SideMenuViewController {
     // 프로필 가져오기
     func loadProfile(){
-//        guard let userData = userData else { return }
-//        imgLoadImage.image = userData.profile
-//        lblLoadName.text = userData.name
-//        lblLoadEmail.text = userData.email
+        //        guard let userData = userData else { return }
+        //        imgLoadImage.image = userData.profile
+        //        lblLoadName.text = userData.name
+        //        lblLoadEmail.text = userData.email
     }
-    func logOut(){
+    func logOut() {
         GIDSignIn.sharedInstance.signOut()
         print("Logout")
         
+        // Side Menu 화면을 dismiss
+        self.dismiss(animated: true, completion: nil)
+        
+        // 다음 화면으로 이동
         let board = UIStoryboard(name: "Main", bundle: nil)
         guard let nextVC = board.instantiateViewController(withIdentifier: "LoginSB") as? LoginViewController else { return }
-//        nextVC.userData = data
         nextVC.modalTransitionStyle = .coverVertical
         nextVC.modalPresentationStyle = .overFullScreen
-        self.present(nextVC, animated: true)
+        UIApplication.shared.windows.first?.rootViewController = nextVC
         
-        // firebase 로그아웃
+        // Firebase 로그아웃
         let firebaseAuth = Auth.auth()
-           do {
-               try firebaseAuth.signOut()
-               self.navigationController?.popToRootViewController(animated: true)
-           } catch let signOutError as NSError {
-               print ("Error signing out: %@", signOutError)
-           }
-
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
 }
 
