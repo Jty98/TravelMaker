@@ -66,7 +66,7 @@
         <!--Side Menu Navigation Controller-->
         <scene sceneID="prQ-RJ-1WC">
             <objects>
-                <navigationController id="M7m-Mj-Nzt" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SideSB" id="M7m-Mj-Nzt" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="s71-4k-0UH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bgR-PP-xKJ">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
