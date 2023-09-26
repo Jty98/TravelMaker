@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17210C212AC1A84700876672 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17210C202AC1A84700876672 /* FirebaseModel.swift */; };
+		17210C232AC1E04700876672 /* PlanQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17210C222AC1E04700876672 /* PlanQueryModel.swift */; };
+		17210C252AC26C7F00876672 /* PlanInsertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17210C242AC26C7F00876672 /* PlanInsertModel.swift */; };
+		17210C272AC272E500876672 /* PlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17210C262AC272E500876672 /* PlanDetailViewController.swift */; };
 		173B9B172AC03D15009305F7 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B162AC03D15009305F7 /* Regex.swift */; };
 		173B9B6A2AC07C68009305F7 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B692AC07C68009305F7 /* SideMenuModel.swift */; };
 		173B9B6E2AC08743009305F7 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B6D2AC08743009305F7 /* SideMenuViewController.swift */; };
 		173B9B702AC089A3009305F7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B6F2AC089A3009305F7 /* UserData.swift */; };
 		173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B752AC129CA009305F7 /* SignUpModel.swift */; };
+		173B9B782AC17CCF009305F7 /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */; };
 		6617985C2ABD642D005300BE /* SearchResultSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985B2ABD642D005300BE /* SearchResultSB.storyboard */; };
 		6617985E2ABD6441005300BE /* MapSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985D2ABD6441005300BE /* MapSB.storyboard */; };
 		661798602ABD644B005300BE /* HighlightSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6617985F2ABD644B005300BE /* HighlightSB.storyboard */; };
@@ -62,11 +67,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17210C202AC1A84700876672 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
+		17210C222AC1E04700876672 /* PlanQueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanQueryModel.swift; sourceTree = "<group>"; };
+		17210C242AC26C7F00876672 /* PlanInsertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanInsertModel.swift; sourceTree = "<group>"; };
+		17210C262AC272E500876672 /* PlanDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailViewController.swift; sourceTree = "<group>"; };
 		173B9B162AC03D15009305F7 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		173B9B692AC07C68009305F7 /* SideMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
 		173B9B6D2AC08743009305F7 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		173B9B6F2AC089A3009305F7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		173B9B752AC129CA009305F7 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
 		45E454D1F9606A516B83962F /* Pods_TravelMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMaker.release.xcconfig"; path = "Target Support Files/Pods-TravelMaker/Pods-TravelMaker.release.xcconfig"; sourceTree = "<group>"; };
 		6617985B2ABD642D005300BE /* SearchResultSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultSB.storyboard; sourceTree = "<group>"; };
@@ -145,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				173B9B752AC129CA009305F7 /* SignUpModel.swift */,
+				17210C222AC1E04700876672 /* PlanQueryModel.swift */,
+				17210C242AC26C7F00876672 /* PlanInsertModel.swift */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -154,6 +166,7 @@
 			children = (
 				661798642ABD6E87005300BE /* Constant.swift */,
 				173B9B6F2AC089A3009305F7 /* UserData.swift */,
+				17210C202AC1A84700876672 /* FirebaseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +279,8 @@
 			isa = PBXGroup;
 			children = (
 				661798682ABD710B005300BE /* PlanViewController.swift */,
+				173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */,
+				17210C262AC272E500876672 /* PlanDetailViewController.swift */,
 			);
 			path = PlanVC;
 			sourceTree = "<group>";
@@ -440,16 +455,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173B9B782AC17CCF009305F7 /* PlanTableViewCell.swift in Sources */,
 				666CA8C22ABD60CC0063AE32 /* LoginViewController.swift in Sources */,
 				661798692ABD710B005300BE /* PlanViewController.swift in Sources */,
 				173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */,
 				666CA8C82ABD60F20063AE32 /* SearchResultViewController.swift in Sources */,
 				666CA8C42ABD60D40063AE32 /* RegisterViewController.swift in Sources */,
+				17210C272AC272E500876672 /* PlanDetailViewController.swift in Sources */,
 				666CA8C62ABD60E50063AE32 /* MainPageViewController.swift in Sources */,
 				666CA8A52ABD5FE00063AE32 /* AppDelegate.swift in Sources */,
+				17210C232AC1E04700876672 /* PlanQueryModel.swift in Sources */,
+				17210C212AC1A84700876672 /* FirebaseModel.swift in Sources */,
 				173B9B6E2AC08743009305F7 /* SideMenuViewController.swift in Sources */,
 				661798652ABD6E87005300BE /* Constant.swift in Sources */,
 				173B9B6A2AC07C68009305F7 /* SideMenuModel.swift in Sources */,
+				17210C252AC26C7F00876672 /* PlanInsertModel.swift in Sources */,
 				666CA8A72ABD5FE00063AE32 /* SceneDelegate.swift in Sources */,
 				173B9B702AC089A3009305F7 /* UserData.swift in Sources */,
 				661798672ABD6FC1005300BE /* HighlightViewController.swift in Sources */,
