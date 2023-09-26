@@ -14,13 +14,15 @@ struct FirebaseModel {
 //    var imageurl: [String] // 이미지를 담을 리스트
     var taglist: String // 태그들을 담을 리스트
     var imageurl: String // 이미지를 담을 리스트
+    var plan: String // plan 담을 필드
     var date: Date // 날짜를 담을 필드
     
-    init(documentId: String, uid: String, taglist: String, imageurl: String, date: Date) {
+    init(documentId: String, uid: String, taglist: String, imageurl: String, plan: String, date: Date) {
         self.documentId = documentId
         self.uid = uid
         self.taglist = taglist
         self.imageurl = imageurl
+        self.plan = plan
         self.date = date
     }
 }

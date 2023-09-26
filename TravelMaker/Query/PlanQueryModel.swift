@@ -48,6 +48,7 @@ class PlanQueryModel {
                                                           uid: currentUserUID,
                                                           taglist: document.data()["taglist"] as! String,
                                                           imageurl: document.data()["imageurl"] as! String,
+                                                          plan: document.data()["plan"] as! String,
                                                           date: date)
 
                                 locations.append(query)
