@@ -43,7 +43,7 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="imgView" destination="tAV-Tv-Iel" id="8Rp-dQ-lOV"/>
+                                            <outlet property="imgView" destination="tAV-Tv-Iel" id="jSy-mb-3if"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
