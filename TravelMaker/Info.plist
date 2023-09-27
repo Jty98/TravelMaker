@@ -2,16 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NMFClientId</key>
-	<string>rywc2aovy1</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>위치정보 권한이 필요합니다.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>위치정보 권한이 필요합니다.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치정보 권한이 필요합니다.</string>
-	<key>GIDClientID</key>
-	<string>147295468502-jfk21a6maasqaco53lje8bm2q1f7u1e7.apps.googleusercontent.com</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>사진 권한을 허용하시겠습니까?</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>사진 권한을 허용하시겠습니까?</string>
+	<key>NSCameraUsageDescription</key>
+	<string>카메라 권한을 허용하시겠습니까?</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -23,6 +19,10 @@
 			</array>
 		</dict>
 	</array>
+	<key>GIDClientID</key>
+	<string>147295468502-jfk21a6maasqaco53lje8bm2q1f7u1e7.apps.googleusercontent.com</string>
+	<key>NMFClientId</key>
+	<string>rywc2aovy1</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
