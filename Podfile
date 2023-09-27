@@ -12,5 +12,6 @@ pod 'SDWebImage/MapKit'
 pod 'GoogleSignIn'
 pod 'SideMenu'
 pod 'NMapsMap'
+pod 'BSImagePicker'
 
 end

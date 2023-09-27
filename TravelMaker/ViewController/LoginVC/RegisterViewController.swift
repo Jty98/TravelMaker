@@ -144,7 +144,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     // 키보드가 생겼을 때
     @objc func keyboardWillAppear(_ sender: NotificationCenter){
-        self.view.frame.origin.y = -200 // 250만큼 화면을 올려줌(누적시키면 안됨)
+        self.view.frame.origin.y = -30 // 250만큼 화면을 올려줌(누적시키면 안됨)
     }
     // 키보드가 없어졌을 때
     @objc func keyboardWillDisApper(_ sender: NotificationCenter){

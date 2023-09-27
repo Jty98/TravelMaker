@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="LoginSB" id="BYZ-38-t0r" customClass="LoginViewController" customModule="TravelMaker" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,53 +25,59 @@
                                     <segue destination="by2-Ir-p1K" kind="show" id="QhJ-rN-5nQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logo같은거 넣는곳" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvy-DX-u9F">
-                                <rect key="frame" x="121" y="103" width="151" height="91"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이메일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOR-4N-UBb">
-                                <rect key="frame" x="16" y="188" width="88" height="38"/>
+                                <rect key="frame" x="16" y="225" width="88" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUo-1C-Wch">
-                                <rect key="frame" x="16" y="234" width="361" height="34"/>
+                                <rect key="frame" x="16" y="271" width="361" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAU-xA-SFX">
-                                <rect key="frame" x="16" y="291" width="88" height="38"/>
+                                <rect key="frame" x="16" y="328" width="88" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3xN-G3-4Ah">
-                                <rect key="frame" x="16" y="337" width="361" height="34"/>
+                                <rect key="frame" x="16" y="374" width="361" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0r-zx-Bq9">
+                                <rect key="frame" x="142" y="428" width="98" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="테스트버튼"/>
+                                <connections>
+                                    <action selector="TestButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ILc-ln-ffq"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TravelMakerLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Phh-mT-xhq">
+                                <rect key="frame" x="107" y="103" width="168" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="928-QK-utX">
-                                <rect key="frame" x="105" y="480" width="182" height="44"/>
+                                <rect key="frame" x="100" y="518" width="182" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="envelope.fill" catalog="system" title="이메일 로그인">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sv3-cI-y6o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN0-gj-Wgm">
-                                <rect key="frame" x="105" y="544" width="182" height="47"/>
+                                <rect key="frame" x="100" y="582" width="182" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="btn_google_signin_dark_pressed_web">
@@ -81,8 +87,8 @@
                                     <action selector="clickGoogleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5W4-B7-4n0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="367-de-sm5">
-                                <rect key="frame" x="117" y="615" width="155" height="35"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="367-de-sm5">
+                                <rect key="frame" x="112" y="653" width="155" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="kakao_login_medium_narrow"/>
@@ -90,20 +96,11 @@
                                     <action selector="btnKakao:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mim-CS-uuX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0r-zx-Bq9">
-                                <rect key="frame" x="144" y="409" width="98" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="테스트버튼"/>
-                                <connections>
-                                    <action selector="TestButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ILc-ln-ffq"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="1Y8-6q-ZF5"/>
+                    <navigationItem key="navigationItem" id="1Y8-6q-ZF5"/>
                     <connections>
                         <outlet property="emailButton" destination="928-QK-utX" id="Elt-YX-TTx"/>
                         <outlet property="googleButton" destination="UN0-gj-Wgm" id="a0z-Vh-1eo"/>
@@ -116,7 +113,7 @@
             </objects>
             <point key="canvasLocation" x="1052.6717557251909" y="-27.464788732394368"/>
         </scene>
-        <!--Register-->
+        <!--회원가입-->
         <scene sceneID="x5R-eI-nuX">
             <objects>
                 <viewController id="by2-Ir-p1K" customClass="RegisterViewController" customModule="TravelMaker" customModuleProvider="target" sceneMemberID="viewController">
@@ -267,7 +264,9 @@
                                 <rect key="frame" x="125" y="570" width="48" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title="">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="btnMale:" destination="by2-Ir-p1K" eventType="touchUpInside" id="yQX-le-0uw"/>
                                 </connections>
@@ -276,7 +275,9 @@
                                 <rect key="frame" x="271" y="569" width="48" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title="">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="btnFemale:" destination="by2-Ir-p1K" eventType="touchUpInside" id="1wr-Ej-NCU"/>
                                 </connections>
@@ -297,18 +298,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="showDatePicker:" destination="by2-Ir-p1K" eventType="touchUpInside" id="NsD-Z0-Dbi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqq-NZ-s7R">
-                                <rect key="frame" x="293" y="101" width="79" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="중복체크">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
-                                    <color key="baseBackgroundColor" systemColor="systemGrayColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="btnEmailCheck:" destination="by2-Ir-p1K" eventType="touchUpInside" id="uAN-Xi-JN5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MBTI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iC3-Pl-J4f">
@@ -426,7 +415,7 @@
                         <viewLayoutGuide key="safeArea" id="Za5-oq-2aF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Register" id="b88-cb-1yi"/>
+                    <navigationItem key="navigationItem" title="회원가입" id="b88-cb-1yi"/>
                     <connections>
                         <outlet property="btnDropAction" destination="XBL-oJ-2XT" id="C3z-qb-Z2k"/>
                         <outlet property="btnECoror" destination="N1F-vP-VvT" id="IHm-qD-sQw"/>
@@ -553,6 +542,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TravelMakerLogo" width="200" height="200"/>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
         <image name="btn_google_signin_dark_pressed_web" width="191" height="46"/>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
@@ -564,11 +554,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Jin_weatherAPI_Key.plist">
-   </FileRef>
-   <FileRef
       location = "group:TravelMaker.xcodeproj">
    </FileRef>
    <FileRef

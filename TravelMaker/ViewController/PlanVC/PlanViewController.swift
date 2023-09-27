@@ -15,7 +15,7 @@ import SDWebImage // 캐싱해서 빠른 이미지띄우게 해줌
 class PlanViewController: UIViewController {
     
     @IBOutlet weak var tvPlanList: UITableView!
-    var planListData: [FirebaseModel] = []
+    var planListData: [SelectModel] = []
     @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
     
     
@@ -100,10 +100,10 @@ extension PlanViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         // 날짜 처리하고 저장
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: planListData[indexPath.row].date)
-        cell.lblDate.text = dateString
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        let dateString = dateFormatter.string(from: planListData[indexPath.row].date)
+        cell.lblDate.text = planListData[indexPath.row].date
         // 리스트에 담긴 태그들을 출력하기위함
         cell.lblTagList.text = planListData[indexPath.row].taglist
         
@@ -130,11 +130,12 @@ extension PlanViewController: UITableViewDelegate, UITableViewDataSource {
             detailView.receivePlan = planListData[indexPath!.row].plan
             detailView.receiveTag = planListData[indexPath!.row].taglist
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd" // 원하는 날짜 형식으로 설정
-            // 날짜를 문자열로 변환
-            let date = planListData[indexPath!.row].date
-            detailView.receiveDate = dateFormatter.string(from: date)
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "yyyy-MM-dd" // 원하는 날짜 형식으로 설정
+//            // 날짜를 문자열로 변환
+//            let date = planListData[indexPath!.row].date
+//            detailView.receiveDate = dateFormatter.string(from: date)
+            detailView.receiveDate = planListData[indexPath!.row].date
                 
         }
         
@@ -145,7 +146,7 @@ extension PlanViewController: UITableViewDelegate, UITableViewDataSource {
 } // extension Table
 
 extension PlanViewController: QueryModelProtocol{
-    func itemDownloaded(items: [FirebaseModel]) {
+    func itemDownloaded(items: [SelectModel]) {
         planListData = items    // data 넣기
         print("items = \(items)")
         self.tvPlanList.reloadData()

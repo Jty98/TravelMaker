@@ -26,13 +26,19 @@ class LoginViewController: UIViewController, LoginCheck {
 
         // 기존에 로그인한 경우에 바로 페이지 이동하기
         if Auth.auth().currentUser != nil{
-            print("로그인 됨", Auth.auth().currentUser?.uid as Any)
-            let Tabbar = storyboard?.instantiateViewController(identifier: Constants.storyboard.Tabbar) as? UITabBarController
-            print("go to tabbar")
-            view.window?.rootViewController = Tabbar
-        }else{
-            print("로그인 안됨", Auth.auth().currentUser?.uid as Any)
-        }
+        let user = Auth.auth().currentUser
+         // 사용자가 로그인한 경우
+        let uid = user?.uid
+        print("사용자 UID: \(String(describing: uid))")
+        let Tabbar = storyboard?.instantiateViewController(identifier: Constants.storyboard.Tabbar) as? UITabBarController
+        print("go to tabbar")
+        view.window?.rootViewController = Tabbar
+
+         } else {
+             // 사용자가 로그인하지 않은 경우
+             print("사용자가 로그인하지 않았습니다.")
+         }
+        
         checkLoginGoogleStatus()
         
         if isLogin() {
@@ -61,7 +67,7 @@ class LoginViewController: UIViewController, LoginCheck {
         }
         // 키보드가 생겼을 때
         @objc func keyboardWillAppear(_ sender: NotificationCenter){
-            self.view.frame.origin.y = -100 // 250만큼 화면을 올려줌(누적시키면 안됨)
+            self.view.frame.origin.y = -80 // 250만큼 화면을 올려줌(누적시키면 안됨)
         }
         // 키보드가 없어졌을 때
         @objc func keyboardWillDisApper(_ sender: NotificationCenter){
