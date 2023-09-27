@@ -45,7 +45,17 @@ class PlanViewController: UIViewController {
         tvPlanList.reloadData()
 
     }
+    
+    
+    // SideMenu 불러오는 방식으로 모든 페이지에 똑같이 버튼 만들고 붙여넣으면 됨
+    @IBAction func sideMenuAction(_ sender: UIBarButtonItem) {
+        // 스토리보드 이름과 뷰 컨트롤러의 Storyboard ID 지정
+        let storyboard = UIStoryboard(name: "MainPageSB", bundle: nil) // 스토리보드 파일 이름
+        let viewController = storyboard.instantiateViewController(withIdentifier: "SideSB") // 스토리보드 식별자 이름
+        present(viewController, animated: true, completion: nil)
 
+     }
+    
     
 
 
@@ -125,9 +135,7 @@ extension PlanViewController: UITableViewDelegate, UITableViewDataSource {
             // 날짜를 문자열로 변환
             let date = planListData[indexPath!.row].date
             detailView.receiveDate = dateFormatter.string(from: date)
-            
-
-            
+                
         }
         
         

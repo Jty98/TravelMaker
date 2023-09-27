@@ -11,7 +11,7 @@ import FirebaseAuth // firebase 로그인기능 활성화
 import GoogleSignIn // google 로그인기능 활성화
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, LoginCheck {
     
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
@@ -24,17 +24,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        // 버튼 테두리 설정
-//        googleButton.layer.borderWidth = 1.0 // 테두리 두께
-//        googleButton.layer.borderColor = UIColor.gray.cgColor // 테두리 색상
-//        googleButton.layer.cornerRadius = 10.0 // 테두리 둥글기
-//        emailButton.layer.borderWidth = 1.0 // 테두리 두께
-//        emailButton.layer.borderColor = UIColor.gray.cgColor // 테두리 색상
-//        emailButton.layer.cornerRadius = 10.0 // 테두리 둥글기
-//        kakaoButton.layer.borderWidth = 1.0 // 테두리 두께
-//        kakaoButton.layer.borderColor = UIColor.gray.cgColor // 테두리 색상
-//        kakaoButton.layer.cornerRadius = 10.0 // 테두리 둥글기
-
         // 기존에 로그인한 경우에 바로 페이지 이동하기
         if Auth.auth().currentUser != nil{
             print("로그인 됨", Auth.auth().currentUser?.uid as Any)
@@ -45,6 +34,14 @@ class LoginViewController: UIViewController {
             print("로그인 안됨", Auth.auth().currentUser?.uid as Any)
         }
         checkLoginGoogleStatus()
+        
+        if isLogin() {
+            // 로그인된 상태일 때의 작업 수행
+            transitionToHome()
+        } else {
+            // 로그인되지 않은 상태일 때의 작업 수행
+            // 예: 로그인 화면 표시 또는 아무 작업도 하지 않음
+        }
         
         // 키보드 화면가림 해결 함수
         setKeyboardEvent()
@@ -152,6 +149,14 @@ extension LoginViewController {
         }
     }
     
+    //        // 스토리보드 이름과 뷰 컨트롤러의 Storyboard ID 지정
+    //        let storyboard = UIStoryboard(name: "MainPageSB", bundle: nil) // 여기서 "Main"은 스토리보드의 이름입니다.
+    //        let viewController = storyboard.instantiateViewController(withIdentifier: "SideSB") // "YourViewControllerStoryboardID"에 뷰 컨트롤러의 실제 Storyboard ID를 사용합니다.
+    //
+    //        // 뷰 컨트롤러 표시
+    //        self.navigationController?.pushViewController(viewController, animated: true)
+
+    
     // 구글 로그인
     func googleLogin() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -239,3 +244,13 @@ extension LoginViewController {
     }
 }
 
+protocol LoginCheck {
+    func isLogin() -> Bool
+}
+
+extension LoginCheck {
+    func isLogin() -> Bool {
+        print(Auth.auth().currentUser?.uid != nil ? "DEBUG: 로그인 되어있음" : "DEBUG: 로그인 안되어있음")
+        return Auth.auth().currentUser?.uid != nil ? true : false
+    }
+}
