@@ -64,6 +64,10 @@
 		666CA8C82ABD60F20063AE32 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666CA8C72ABD60F20063AE32 /* SearchResultViewController.swift */; };
 		666CA8CB2ABD61090063AE32 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666CA8CA2ABD61090063AE32 /* MapViewController.swift */; };
 		666CA8D12ABD614F0063AE32 /* MainPageSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666CA8D02ABD614F0063AE32 /* MainPageSB.storyboard */; };
+		84D381062AC39BE8009131C3 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D381052AC39BE8009131C3 /* Weather.swift */; };
+		84D3810C2AC3C5BC009131C3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3810B2AC3C5BC009131C3 /* Result.swift */; };
+		84D3810E2AC3C83D009131C3 /* ResultQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3810D2AC3C83D009131C3 /* ResultQueryModel.swift */; };
+		84D381102AC3E58F009131C3 /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3810F2AC3E58F009131C3 /* DBModel.swift */; };
 		8B4376902EBF6E52CA54FCBE /* Pods_TravelMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E454D1F9606A516B83962F /* Pods_TravelMaker.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +106,10 @@
 		666CA8C72ABD60F20063AE32 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		666CA8CA2ABD61090063AE32 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		666CA8D02ABD614F0063AE32 /* MainPageSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainPageSB.storyboard; sourceTree = "<group>"; };
+		84D381052AC39BE8009131C3 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		84D3810B2AC3C5BC009131C3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		84D3810D2AC3C83D009131C3 /* ResultQueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultQueryModel.swift; sourceTree = "<group>"; };
+		84D3810F2AC3E58F009131C3 /* DBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBModel.swift; sourceTree = "<group>"; };
 		A253CEA8E3FBF91DC007D99D /* Pods-TravelMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMaker.debug.xcconfig"; path = "Target Support Files/Pods-TravelMaker/Pods-TravelMaker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +177,10 @@
 				661798642ABD6E87005300BE /* Constant.swift */,
 				173B9B6F2AC089A3009305F7 /* UserData.swift */,
 				17210C202AC1A84700876672 /* FirebaseModel.swift */,
+				84D381052AC39BE8009131C3 /* Weather.swift */,
+				84D3810B2AC3C5BC009131C3 /* Result.swift */,
+				84D3810D2AC3C83D009131C3 /* ResultQueryModel.swift */,
+				84D3810F2AC3E58F009131C3 /* DBModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -461,9 +473,11 @@
 				173B9B782AC17CCF009305F7 /* PlanTableViewCell.swift in Sources */,
 				666CA8C22ABD60CC0063AE32 /* LoginViewController.swift in Sources */,
 				661798692ABD710B005300BE /* PlanViewController.swift in Sources */,
+				84D3810E2AC3C83D009131C3 /* ResultQueryModel.swift in Sources */,
 				173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */,
 				666CA8C82ABD60F20063AE32 /* SearchResultViewController.swift in Sources */,
 				666CA8C42ABD60D40063AE32 /* RegisterViewController.swift in Sources */,
+				84D3810C2AC3C5BC009131C3 /* Result.swift in Sources */,
 				17210C272AC272E500876672 /* PlanDetailViewController.swift in Sources */,
 				666CA8C62ABD60E50063AE32 /* MainPageViewController.swift in Sources */,
 				666CA8A52ABD5FE00063AE32 /* AppDelegate.swift in Sources */,
@@ -472,9 +486,11 @@
 				173B9B6E2AC08743009305F7 /* SideMenuViewController.swift in Sources */,
 				661798652ABD6E87005300BE /* Constant.swift in Sources */,
 				173B9B6A2AC07C68009305F7 /* SideMenuModel.swift in Sources */,
+				84D381062AC39BE8009131C3 /* Weather.swift in Sources */,
 				17210C252AC26C7F00876672 /* PlanInsertModel.swift in Sources */,
 				666CA8A72ABD5FE00063AE32 /* SceneDelegate.swift in Sources */,
 				173B9B702AC089A3009305F7 /* UserData.swift in Sources */,
+				84D381102AC3E58F009131C3 /* DBModel.swift in Sources */,
 				6600D9292AC2B0BB00ECB1CB /* CollectionViewCell.swift in Sources */,
 				661798672ABD6FC1005300BE /* HighlightViewController.swift in Sources */,
 				666CA8CB2ABD61090063AE32 /* MapViewController.swift in Sources */,

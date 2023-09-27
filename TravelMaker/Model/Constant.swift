@@ -12,6 +12,7 @@ struct Constants{
     struct storyboard{
         
         static let Tabbar = "Tabbar"
+        static let resultTabbar = "resultTabbar"
         
     }
 }

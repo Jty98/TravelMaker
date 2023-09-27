@@ -10,17 +10,100 @@ import FirebaseAuth
 
 class MainPageViewController: UIViewController {
 
-    @IBOutlet weak var SearchBar: UISearchBar!
+    @IBOutlet weak var tfSearch: UITextField!
+    
+    var listResult: [DBModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        SearchBar.layer.borderColor = UIColor.green.cgColor // 테두리 색상
-        SearchBar.layer.borderWidth = 1.0
     }
     
+    func sendContent(url: String){
+        guard let myUrl = URL(string: url) else {return}
+        let myRequest = URLRequest(url: myUrl)
+    }
+    
+    @IBAction func btnSearch(_ sender: UIButton) {
+//        let searchContent = tfSearch.text ?? "제주도 관광"
+//        guard let searchContent = tfSearch.text else {return}
+        let searchContent = tfSearch.text!
+        let urlContent = "http://127.0.0.1:5000/search?content=" + searchContent
+        sendContent(url: urlContent)
+        
+        let resultQuery = ResultQueryModel()
+        resultQuery.delegate = self
+        resultQuery.searchUrl(url: urlContent)
+
+        
+        
+        
+        
+        // 다음 화면으로 이동
+//        let board = UIStoryboard(name: "SearchResultSB", bundle: nil)
+//        guard let nextVC = board.instantiateViewController(withIdentifier: "SearchResultView") as? SearchResultViewController else { return }
+//        nextVC.modalTransitionStyle = .coverVertical
+//        nextVC.modalPresentationStyle = .overFullScreen
+//        UIApplication.shared.windows.first?.rootViewController = nextVC
+        
+//        let Tabbar = storyboard?.instantiateViewController(identifier: Constants.storyboard.resultTabbar) as? UITabBarController
+//        print("go to tabbar")
+//        view.window?.rootViewController = Tabbar
+
+
+    }
     
 
-   
+    // 빈공간 클릭시 키보드 사라지게 하기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+          self.view.endEditing(true)
+    }
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "sgResultView"{
+        let resultView = segue.destination as! SearchResultViewController
+
+//            resultView.receivedResult1 = 
+        }
+    }
+    
+
+//    // API Key 접근 코드
+//    private var apiKey: String {
+//        get {
+//            // 생성한 .plist 파일 경로 불러오기
+//            guard let filePath = Bundle.main.path(forResource: "Jin_weatherAPI_Key", ofType: "plist") else {
+//                fatalError("Couldn't find file 'Jin_weatherAPI_Key.plist'.")
+//            }
+//            
+//            // .plist를 딕셔너리로 받아오기
+//            let plist = NSDictionary(contentsOfFile: filePath)
+//            
+//            // 딕셔너리에서 값 찾기
+//            guard let value = plist?.object(forKey: "OPENWEATHERMAP_KEY") as? String else {
+//                fatalError("Couldn't find key 'OPENWEATHERMAP_KEY' in 'Jin_weatherAPI_Key.plist'.")
+//            }
+//            return value
+//        }
+//    }
+
 
 } // MainPageViewController
+
+extension MainPageViewController: ResultQueryProtocol{
+    func itemDownloaded(items: [DBModel]) {
+        listResult = items
+        print(listResult)
+    }
+//    func itemDownloaded(items: [DBModel]) {
+//        listResult = items
+//        print(listResult)
+////        tvResult1.text = listResult
+//    }
+    
+    
+}
