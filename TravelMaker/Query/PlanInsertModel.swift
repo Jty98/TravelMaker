@@ -14,7 +14,7 @@ import UIKit
 class PlanInsertModel {
     let db = Firestore.firestore()
 
-    func insertItems(uid: String, taglist: String, selectedImages: [UIImage], date: String) -> Bool {
+    func insertItems(uid: String, taglist: String, plan: String, selectedImages: [UIImage], date: String) -> Bool {
         var status: Bool = true
         let group = DispatchGroup() // 여러 개의 이미지 업로드 작업을 추적하기 위한 DispatchGroup
         var imageUrls: [String] = [] // 이미지 URL을 저장할 배열
@@ -48,33 +48,35 @@ class PlanInsertModel {
             }
         }
 
-        group.wait() // 모든 이미지 업로드 작업이 완료될 때까지 대기
+        DispatchQueue.global().async {
+            group.wait() // 모든 이미지 업로드 작업이 완료될 때까지 대기
 
-        if status {
-            // 이미지 URL들을 `,`로 구분하여 문자열로 만듭니다.
-            let combinedImageUrl = imageUrls.joined(separator: ",")
+            if status {
+                // 이미지 URL들을 `,`로 구분하여 문자열로 만듭니다.
+                let combinedImageUrl = imageUrls.joined(separator: ",")
 
-            // Firestore에 데이터 추가
-            let documentRef = db.collection("planlist").document()
-            db.runTransaction({ (transaction, errorPointer) -> Any? in
-                transaction.setData([
-                    "uid": uid,
-                    "taglist": taglist,
-                    "imageurl": combinedImageUrl, // 이미지 URL들을 문자열로 저장
-                    "date": date // Date를 Timestamp로 변환하여 저장
-                ], forDocument: documentRef)
+                // Firestore에 데이터 추가
+                let documentRef = self.db.collection("planlist").document()
+                self.db.runTransaction({ (transaction, errorPointer) -> Any? in
+                    transaction.setData([
+                        "uid": uid,
+                        "taglist": taglist,
+                        "imageurl": combinedImageUrl, // 이미지 URL들을 문자열로 저장
+                        "plan": plan,
+                        "date": date // Date를 Timestamp로 변환하여 저장
+                    ], forDocument: documentRef)
 
-                return nil
-            }) { (_, error) in
-                if let error = error {
-                    print("Error adding document: \(error)")
-                    status = false
-                } else {
-                    print("Document added with ID: \(documentRef.documentID)")
+                    return nil
+                }) { (_, error) in
+                    if let error = error {
+                        print("Error adding document: \(error)")
+                        status = false
+                    } else {
+                        print("Document added with ID: \(documentRef.documentID)")
+                    }
                 }
             }
         }
-
         return status
     }
 }

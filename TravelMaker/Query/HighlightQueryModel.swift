@@ -19,12 +19,7 @@ class HighlightQueryModel {
     
     func downloadItems() {
         var locations: [HighlightSelectModel] = []
-        
-        if let currentUser = Auth.auth().currentUser {
-            
-            
-            db.collection("Planlist")
-                
+            db.collection("planlist")
                 .order(by: "date") // 이 조건 줄거면 firebase database의 색인 조건 추가해줘야함 (에러 떴을때 뜨는 url 주소창에 치면 적용됨)
                 .getDocuments { (querySnapshot, error) in
                     if let error = error {
@@ -32,19 +27,6 @@ class HighlightQueryModel {
                     } else {
                         print("Data is downloaded")
                         for document in querySnapshot!.documents {
-                            //                            let timestamp = document.data()["date"] as? Timestamp
-                            //                            let date = timestamp?.dateValue() ?? Date()
-                            
-                            // 필터링을 여기서 수행
-                            //                            if let imageUrls = document.data()["imageurl"] as? [String],
-                            //                               let taglist = document.data()["taglist"] as? [String],
-                            //                               imageUrls.contains("//"),
-                            //                               taglist.contains("#") {
-                            //                                let query = FirebaseModel(documentId: document.documentID,
-                            //                                                          uid: currentUserUID,
-                            //                                                          taglist: taglist,
-                            //                                                          imageurl: imageUrls,
-                            //                                                          date: date)
                             let query = HighlightSelectModel(documentId: document.documentID,
                                                     
                                                     taglist: document.data()["taglist"] as! String,
@@ -71,5 +53,5 @@ class HighlightQueryModel {
                 }
         }
     }
-}
+
 

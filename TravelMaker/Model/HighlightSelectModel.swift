@@ -18,7 +18,6 @@ struct HighlightSelectModel {
 
     init(documentId: String, taglist: String, imageurl: String, plan: String, date: String) {
         self.documentId = documentId
-    
         self.taglist = taglist
         self.imageurl = imageurl
         self.plan = plan

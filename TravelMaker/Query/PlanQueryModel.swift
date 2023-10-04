@@ -31,19 +31,6 @@ class PlanQueryModel {
                     } else {
                         print("Data is downloaded")
                         for document in querySnapshot!.documents {
-                            //                            let timestamp = document.data()["date"] as? Timestamp
-                            //                            let date = timestamp?.dateValue() ?? Date()
-                            
-                            // 필터링을 여기서 수행
-                            //                            if let imageUrls = document.data()["imageurl"] as? [String],
-                            //                               let taglist = document.data()["taglist"] as? [String],
-                            //                               imageUrls.contains("//"),
-                            //                               taglist.contains("#") {
-                            //                                let query = FirebaseModel(documentId: document.documentID,
-                            //                                                          uid: currentUserUID,
-                            //                                                          taglist: taglist,
-                            //                                                          imageurl: imageUrls,
-                            //                                                          date: date)
                             let query = SelectModel(documentId: document.documentID,
                                                     uid: currentUserUID,
                                                     taglist: document.data()["taglist"] as! String,

@@ -16,7 +16,9 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var lblLoadName: UILabel!
     @IBOutlet weak var lblLoadEmail: UILabel!
     
-
+    @IBOutlet weak var lblModeStatus: UILabel!
+    @IBOutlet weak var swMode: UISwitch!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +26,63 @@ class SideMenuViewController: UIViewController {
         imgLoadImage.image = DataLoad.profile
         lblLoadName.text = DataLoad.name
         lblLoadEmail.text = DataLoad.email
+        
+        setupDarkMode()
+        setupSwitchState()
+
 
 //        loadProfile()
     }
-        
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupDarkMode()
+        setupSwitchState()
+    }
+
+
+    func setupDarkMode() {
+        if let appearance = UserDefaults.standard.string(forKey: "Appearance") {
+            if appearance == "Dark" {
+                lblModeStatus.text = "다크모드"
+                self.overrideUserInterfaceStyle = .dark
+            } else {
+                lblModeStatus.text = "기본모드"
+                self.overrideUserInterfaceStyle = .light
+            }
+        }
+    }
+    
+    func setupSwitchState() {
+        if let switchState = UserDefaults.standard.value(forKey: "SwitchState") as? Bool {
+            swMode.isOn = switchState
+            updateModeStatusLabel(isDarkMode: switchState)
+        }
+    }
+
+    // 라벨 업데이트
+    func updateModeStatusLabel(isDarkMode: Bool) {
+        if isDarkMode {
+            lblModeStatus.text = "다크모드"
+        } else {
+            lblModeStatus.text = "기본모드"
+        }
+    }
+    
+    
+    @IBAction func modeSwitch(_ sender: UISwitch) {
+        if sender.isOn { // 스위치가 켜진경우
+            updateModeStatusLabel(isDarkMode: true)
+            self.overrideUserInterfaceStyle = .dark
+        } else { // 스위치가 꺼진경우
+            updateModeStatusLabel(isDarkMode: false)
+            self.overrideUserInterfaceStyle = .light
+        }
+         UserDefaults.standard.set(sender.isOn, forKey: "SwitchState")
+         UserDefaults.standard.set(sender.isOn ? "Dark" : "Light", forKey: "Appearance")
+    }
+    
+    
+    
     // 데이터를 불러와 UI에 설정하는 함수
 //    func loadUserData(_ dataLoad: DataLoad) {
 //        if let profilePicUrl = dataLoad.profile1,
@@ -48,6 +103,7 @@ class SideMenuViewController: UIViewController {
 //            }
 //        }
 //    }
+
     
 } // SideMenuViewController
 
