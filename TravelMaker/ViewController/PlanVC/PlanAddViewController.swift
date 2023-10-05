@@ -2,7 +2,7 @@
 //  PlanAddViewController.swift
 //  TravelMaker
 //
-//  Created by 정태영 on 2023/09/26.
+//  Created by 정태영 on 10/5/23.
 //
 
 import UIKit
@@ -15,18 +15,18 @@ struct ImageData {
     var isDeletable: Bool // 이미지 삭제 가능 여부 변수
 }
 
-
 class PlanAddViewController: UIViewController {
     
-    @IBOutlet weak var PhotoCollectionView: UICollectionView!
     var selectedImages: [UIImage] = []
     
+    @IBOutlet weak var PhotoCollectionView: UICollectionView!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var tfTag: UITextField!
     @IBOutlet weak var tvPlan: UITextView!
     
     // 초기 날짜값을 오늘로 설정하기위해 선언
-    private let datePicker = UIDatePicker()
+   private let datePicker = UIDatePicker()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class PlanAddViewController: UIViewController {
         let currentDate = Date()
         let dateString = dateFormatter.string(from: currentDate)
         lblDate.text = dateString
-        
+
     }
     
     
@@ -52,33 +52,36 @@ class PlanAddViewController: UIViewController {
         showImagePicker()
     }
     
+    
+    
     // 데이트피커 띄우기 버튼
     @available(iOS 14.0, *)
     @IBAction func btnDatePicker(_ sender: UIButton) {
         setupDatePicker()
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.locale = Locale(identifier: "ko-KR")
-        
-        let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .default, handler: nil)
-        let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
-            let selectedDate = datePicker.date
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd" // 원하는 날짜 형식으로 설정
-            let selectedDateString = dateFormatter.string(from: selectedDate)
-            self.lblDate.text = selectedDateString
-        }
-        alertController.view.addSubview(datePicker)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
+       let datePicker = UIDatePicker()
+       datePicker.datePickerMode = .date
+       datePicker.preferredDatePickerStyle = .wheels
+       datePicker.locale = Locale(identifier: "ko-KR")
+       
+       let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+       
+       let cancelAction = UIAlertAction(title: "취소", style: .default, handler: nil)
+       let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
+           let selectedDate = datePicker.date
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "yyyy-MM-dd" // 원하는 날짜 형식으로 설정
+           let selectedDateString = dateFormatter.string(from: selectedDate)
+           self.lblDate.text = selectedDateString
+       }
+       alertController.view.addSubview(datePicker)
+       alertController.addAction(okAction)
+       alertController.addAction(cancelAction)
+       
+       present(alertController, animated: true, completion: nil)
     }
     
     
+
     // 데이트피커 초기설정
     private func setupDatePicker() {
          datePicker.datePickerMode = .date
@@ -158,37 +161,45 @@ class PlanAddViewController: UIViewController {
         }
     }
 
-    // 플랜 저장하기
+    
+    
+    
+    // Plan 저장하기
     @IBAction func btnAddPlan(_ sender: UIButton) {
         let date = lblDate.text ?? ""
-        let tag = tfTag.text ?? ""
-        let plan = tvPlan.text ?? ""
-        
-        if let currentUser = Auth.auth().currentUser {
-            let currentUserUID = currentUser.uid
-            
-            let addModel = PlanInsertModel()
-            let insert = addModel.insertItems(uid: currentUserUID, taglist: tag, selectedImages: selectedImages, date: date)
-            
-            if insert == true {
-                // Firebase 작업이 완료될 때까지 2초 동안 대기
-                Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
-                    let resultAlert = UIAlertController(title: "완료", message: "추가 되었습니다.", preferredStyle: .actionSheet)
-                    let onAction = UIAlertAction(title: "OK", style: .default, handler: { ACTION in
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                    resultAlert.addAction(onAction)
-                    self.present(resultAlert, animated: true)
-                }
-            } else {
-                let resultAlert = UIAlertController(title: "실패", message: "에러가 발생 되었습니다.", preferredStyle: .alert)
-                let onAction = UIAlertAction(title: "OK", style: .default)
-                resultAlert.addAction(onAction)
-                present(resultAlert, animated: true)
-            }
+         let tag = tfTag.text ?? ""
+         let plan = tvPlan.text ?? ""
+         
+         if let currentUser = Auth.auth().currentUser {
+             let currentUserUID = currentUser.uid
+             
+             let addModel = PlanInsertModel()
+             let insert = addModel.insertItems(uid: currentUserUID, taglist: tag, plan: plan, selectedImages: selectedImages, date: date)
+             
+             if insert == true {
+                 // Firebase 작업이 완료될 때까지 2초 동안 대기
+                 Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
+                     let resultAlert = UIAlertController(title: "완료", message: "추가 되었습니다.", preferredStyle: .actionSheet)
+                     let onAction = UIAlertAction(title: "OK", style: .default, handler: { ACTION in
+                         self.navigationController?.popViewController(animated: true)
+                     })
+                     resultAlert.addAction(onAction)
+                     self.present(resultAlert, animated: true)
+                 }
+             } else {
+                 let resultAlert = UIAlertController(title: "실패", message: "에러가 발생 되었습니다.", preferredStyle: .alert)
+                 let onAction = UIAlertAction(title: "OK", style: .default)
+                 resultAlert.addAction(onAction)
+                 present(resultAlert, animated: true)
+             }
 
-            }
+             }
+
     }
+    
+    
+    
+
 } // PlanAddViewController
 
 extension PlanAddViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -236,6 +247,4 @@ extension PlanAddViewController: UICollectionViewDataSource, UICollectionViewDel
             return size
         }
     }
-
-
 

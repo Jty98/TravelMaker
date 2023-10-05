@@ -18,6 +18,8 @@
 		173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B752AC129CA009305F7 /* SignUpModel.swift */; };
 		173B9B782AC17CCF009305F7 /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */; };
 		17B339152AC3F4A80090E010 /* SelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B339142AC3F4A80090E010 /* SelectModel.swift */; };
+		17DCBE7C2ACEB895001E38E1 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCBE7B2ACEB895001E38E1 /* PhotoCollectionViewCell.swift */; };
+		17DCBE7E2ACEB8DC001E38E1 /* PlanAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCBE7D2ACEB8DC001E38E1 /* PlanAddViewController.swift */; };
 		6600D9292AC2B0BB00ECB1CB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6600D9282AC2B0BB00ECB1CB /* CollectionViewCell.swift */; };
 		6600D92B2AC400D200ECB1CB /* HighlightQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6600D92A2AC400D200ECB1CB /* HighlightQueryModel.swift */; };
 		6600D92D2AC4017D00ECB1CB /* HighlightSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6600D92C2AC4017D00ECB1CB /* HighlightSelectModel.swift */; };
@@ -86,6 +88,8 @@
 		173B9B752AC129CA009305F7 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
 		17B339142AC3F4A80090E010 /* SelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModel.swift; sourceTree = "<group>"; };
+		17DCBE7B2ACEB895001E38E1 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		17DCBE7D2ACEB8DC001E38E1 /* PlanAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanAddViewController.swift; sourceTree = "<group>"; };
 		45E454D1F9606A516B83962F /* Pods_TravelMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMaker.release.xcconfig"; path = "Target Support Files/Pods-TravelMaker/Pods-TravelMaker.release.xcconfig"; sourceTree = "<group>"; };
 		6600D9282AC2B0BB00ECB1CB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -305,6 +309,8 @@
 				661798682ABD710B005300BE /* PlanViewController.swift */,
 				173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */,
 				17210C262AC272E500876672 /* PlanDetailViewController.swift */,
+				17DCBE7B2ACEB895001E38E1 /* PhotoCollectionViewCell.swift */,
+				17DCBE7D2ACEB8DC001E38E1 /* PlanAddViewController.swift */,
 			);
 			path = PlanVC;
 			sourceTree = "<group>";
@@ -482,6 +488,7 @@
 				6600D92D2AC4017D00ECB1CB /* HighlightSelectModel.swift in Sources */,
 				173B9B782AC17CCF009305F7 /* PlanTableViewCell.swift in Sources */,
 				666CA8C22ABD60CC0063AE32 /* LoginViewController.swift in Sources */,
+				17DCBE7E2ACEB8DC001E38E1 /* PlanAddViewController.swift in Sources */,
 				661798692ABD710B005300BE /* PlanViewController.swift in Sources */,
 				84D3810E2AC3C83D009131C3 /* ResultQueryModel.swift in Sources */,
 				173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */,
@@ -497,6 +504,7 @@
 				17210C212AC1A84700876672 /* FirebaseModel.swift in Sources */,
 				173B9B6E2AC08743009305F7 /* SideMenuViewController.swift in Sources */,
 				661798652ABD6E87005300BE /* Constant.swift in Sources */,
+				17DCBE7C2ACEB895001E38E1 /* PhotoCollectionViewCell.swift in Sources */,
 				173B9B6A2AC07C68009305F7 /* SideMenuModel.swift in Sources */,
 				84D381062AC39BE8009131C3 /* Weather.swift in Sources */,
 				17210C252AC26C7F00876672 /* PlanInsertModel.swift in Sources */,

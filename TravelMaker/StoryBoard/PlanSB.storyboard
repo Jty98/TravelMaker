@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hsq-IJ-0eZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hsq-IJ-0eZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -129,8 +130,8 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="btnDelete" destination="4CQ-y1-2AR" id="tZG-oS-xRH"/>
-                                            <outlet property="imgPhoto" destination="n8z-Gn-3Jp" id="eW4-pK-dyu"/>
+                                            <outlet property="btnDelete" destination="4CQ-y1-2AR" id="c8c-xE-Y98"/>
+                                            <outlet property="imgPhoto" destination="n8z-Gn-3Jp" id="H2U-Ud-aNF"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -141,7 +142,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="folder.badge.plus" catalog="system"/>
                                 <connections>
-                                    <action selector="btnUpload:" destination="yb0-oT-Mic" eventType="touchUpInside" id="jL1-7s-1jj"/>
+                                    <action selector="btnUpload:" destination="yb0-oT-Mic" eventType="touchUpInside" id="MNU-HW-y7o"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2C-L6-RMB">
@@ -179,15 +180,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXX-ft-5od">
-                                <rect key="frame" x="166" y="734" width="54" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="저장"/>
-                                <connections>
-                                    <action selector="btnAddPlan:" destination="yb0-oT-Mic" eventType="touchUpInside" id="wl2-TU-UoH"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WI8-9a-QG3">
                                 <rect key="frame" x="16" y="250" width="60" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -201,7 +193,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="calendar.badge.plus" catalog="system"/>
                                 <connections>
-                                    <action selector="btnDatePicker:" destination="yb0-oT-Mic" eventType="touchUpInside" id="97h-j0-frB"/>
+                                    <action selector="btnDatePicker:" destination="yb0-oT-Mic" eventType="touchUpInside" id="anE-OS-TF4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXX-ft-5od">
+                                <rect key="frame" x="165" y="740" width="54" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="저장"/>
+                                <connections>
+                                    <action selector="btnAddPlan:" destination="yb0-oT-Mic" eventType="touchUpInside" id="Gpw-1U-Ejz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -210,10 +211,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add" id="Jka-nG-r12"/>
                     <connections>
-                        <outlet property="PhotoCollectionView" destination="QKq-l5-7XC" id="bap-18-8Vj"/>
-                        <outlet property="lblDate" destination="v2C-L6-RMB" id="YHu-G2-oII"/>
-                        <outlet property="tfTag" destination="x4r-Ai-JDu" id="5Vd-jr-KzJ"/>
-                        <outlet property="tvPlan" destination="mgA-fw-6TB" id="P76-CV-E8j"/>
+                        <outlet property="PhotoCollectionView" destination="QKq-l5-7XC" id="yeb-eu-Sr3"/>
+                        <outlet property="lblDate" destination="v2C-L6-RMB" id="I9U-1F-ZQH"/>
+                        <outlet property="tfTag" destination="x4r-Ai-JDu" id="Vrp-4c-RsG"/>
+                        <outlet property="tvPlan" destination="mgA-fw-6TB" id="HtC-xK-mkK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ccg-vF-Nz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -323,12 +324,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
-        <image name="folder.badge.plus" catalog="system" width="128" height="92"/>
+        <image name="calendar.badge.plus" catalog="system" width="128" height="109"/>
+        <image name="folder.badge.plus" catalog="system" width="128" height="93"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="minus.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
