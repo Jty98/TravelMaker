@@ -303,12 +303,13 @@
             </objects>
             <point key="canvasLocation" x="2006.8702290076335" y="-321.12676056338029"/>
         </scene>
-        <!--Item-->
+        <!--Plan-->
         <scene sceneID="YhS-69-R1s">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hsq-IJ-0eZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="nD3-x6-SaC"/>
+                    <tabBarItem key="tabBarItem" title="Plan" image="paperplane" catalog="system" id="P6O-59-Klm"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aDD-OQ-E7u">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -328,6 +329,7 @@
         <image name="folder.badge.plus" catalog="system" width="128" height="93"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="minus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="paperplane" catalog="system" width="128" height="119"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
