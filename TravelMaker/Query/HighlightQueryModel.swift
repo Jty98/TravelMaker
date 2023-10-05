@@ -21,8 +21,7 @@ class HighlightQueryModel {
         var locations: [HighlightSelectModel] = []
             
             db.collection("planlist")
-                
-                .order(by: "date") // 이 조건 줄거면 firebase database의 색인 조건 추가해줘야함 (에러 떴을때 뜨는 url 주소창에 치면 적용됨)
+            .order(by: "date", descending: true) // 이 조건 줄거면 firebase database의 색인 조건 추가해줘야함 (에러 떴을때 뜨는 url 주소창에 치면 적용됨)
                 .getDocuments { (querySnapshot, error) in
                     if let error = error {
                         print("Error getting documents: \(error)")
