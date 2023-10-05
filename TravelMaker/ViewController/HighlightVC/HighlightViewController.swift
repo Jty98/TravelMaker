@@ -58,6 +58,12 @@ class HighlightViewController: UIViewController {
 
     }
     
+    
+    
+        
+        
+    
+
 
 }
 extension HighlightViewController : HighlightQueryModelProtocol{
@@ -104,6 +110,37 @@ extension HighlightViewController : UICollectionViewDataSource, UICollectionView
         print(highlightListData[indexPath.row])
     }
     
+    // prepare넘기기
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "HDetailSG"{
+            let cell = sender as! UICollectionViewCell   // 셀인식
+            let indexPath = self.collectionView.indexPath(for: cell)  // 몇번째 셀 인식
+            
+            let detailView = segue.destination as! HDetailViewController
+            
+            detailView.receiveDocumentId = highlightListData[indexPath!.row].documentId
+            
+            let PhotoList = highlightListData[indexPath!.row].imageurl.split(separator: ",").map { String($0) }
+            
+            print(" *** PhotoList *** = \(PhotoList)")
+            detailView.receivePhotoList = PhotoList
+            detailView.receivePlan = highlightListData[indexPath!.row].plan
+            detailView.receiveTag = highlightListData[indexPath!.row].taglist
+            
+            //            let dateFormatter = DateFormatter()
+            //            dateFormatter.dateFormat = "yyyy-MM-dd" // 원하는 날짜 형식으로 설정
+            //            // 날짜를 문자열로 변환
+            //            let date = planListData[indexPath!.row].date
+            //            detailView.receiveDate = dateFormatter.string(from: date)
+            detailView.receiveDate = highlightListData[indexPath!.row].date
+            
+        }
+        
+        
+        
+    }
 }
 
 

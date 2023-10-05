@@ -18,6 +18,7 @@
 		173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B752AC129CA009305F7 /* SignUpModel.swift */; };
 		173B9B782AC17CCF009305F7 /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */; };
 		178A30992ACED41000B5C58D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A30982ACED41000B5C58D /* Message.swift */; };
+		178A309B2ACED94B00B5C58D /* HDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A309A2ACED94B00B5C58D /* HDetailViewController.swift */; };
 		17B339152AC3F4A80090E010 /* SelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B339142AC3F4A80090E010 /* SelectModel.swift */; };
 		17DCBE7C2ACEB895001E38E1 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCBE7B2ACEB895001E38E1 /* PhotoCollectionViewCell.swift */; };
 		17DCBE7E2ACEB8DC001E38E1 /* PlanAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCBE7D2ACEB8DC001E38E1 /* PlanAddViewController.swift */; };
@@ -89,6 +90,7 @@
 		173B9B752AC129CA009305F7 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
 		178A30982ACED41000B5C58D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		178A309A2ACED94B00B5C58D /* HDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDetailViewController.swift; sourceTree = "<group>"; };
 		17B339142AC3F4A80090E010 /* SelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModel.swift; sourceTree = "<group>"; };
 		17DCBE7B2ACEB895001E38E1 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		17DCBE7D2ACEB8DC001E38E1 /* PlanAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanAddViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				661798662ABD6FC1005300BE /* HighlightViewController.swift */,
 				6600D9282AC2B0BB00ECB1CB /* CollectionViewCell.swift */,
+				178A309A2ACED94B00B5C58D /* HDetailViewController.swift */,
 			);
 			path = HighlightVC;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				666CA8A52ABD5FE00063AE32 /* AppDelegate.swift in Sources */,
 				17B339152AC3F4A80090E010 /* SelectModel.swift in Sources */,
 				17210C232AC1E04700876672 /* PlanQueryModel.swift in Sources */,
+				178A309B2ACED94B00B5C58D /* HDetailViewController.swift in Sources */,
 				17210C212AC1A84700876672 /* FirebaseModel.swift in Sources */,
 				173B9B6E2AC08743009305F7 /* SideMenuViewController.swift in Sources */,
 				661798652ABD6E87005300BE /* Constant.swift in Sources */,
