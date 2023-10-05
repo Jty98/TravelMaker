@@ -31,15 +31,14 @@
                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
                                 <connections>
                                     <action selector="btnSearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tNT-2d-86H"/>
-                                    <segue destination="5cu-gc-vFb" kind="show" identifier="sgResultView" id="LdV-VE-hUy"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Weather ForeCast" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIb-GY-pqx">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="추천관광지" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIb-GY-pqx">
                                 <rect key="frame" x="16" y="193" width="361" height="229"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oac-00-Ban">
@@ -62,6 +61,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tfSearch" destination="kUp-Ub-ZsU" id="Axn-Fi-kEV"/>
+                        <outlet property="tvWeatherView" destination="fIb-GY-pqx" id="bIz-4n-pnC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

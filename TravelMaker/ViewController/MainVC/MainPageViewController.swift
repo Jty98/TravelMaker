@@ -12,20 +12,22 @@ class MainPageViewController: UIViewController {
 
     @IBOutlet weak var tfSearch: UITextField!
     
+    
     @IBOutlet weak var tvWeatherView: UITextView!
     var listResult: [DBModel] = []
     var resultText: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
     }
     
     func sendContent(url: String){
         guard let myUrl = URL(string: url) else {return}
         let myRequest = URLRequest(url: myUrl)
     }
-    
+
     @IBAction func btnSearch(_ sender: UIButton) {
 //        let searchContent = tfSearch.text ?? "제주도 관광"
 //        guard let searchContent = tfSearch.text else {return}

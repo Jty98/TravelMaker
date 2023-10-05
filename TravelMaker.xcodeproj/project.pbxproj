@@ -17,6 +17,7 @@
 		173B9B702AC089A3009305F7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B6F2AC089A3009305F7 /* UserData.swift */; };
 		173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B752AC129CA009305F7 /* SignUpModel.swift */; };
 		173B9B782AC17CCF009305F7 /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */; };
+		178A30992ACED41000B5C58D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A30982ACED41000B5C58D /* Message.swift */; };
 		17B339152AC3F4A80090E010 /* SelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B339142AC3F4A80090E010 /* SelectModel.swift */; };
 		17DCBE7C2ACEB895001E38E1 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCBE7B2ACEB895001E38E1 /* PhotoCollectionViewCell.swift */; };
 		17DCBE7E2ACEB8DC001E38E1 /* PlanAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCBE7D2ACEB8DC001E38E1 /* PlanAddViewController.swift */; };
@@ -87,6 +88,7 @@
 		173B9B6F2AC089A3009305F7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		173B9B752AC129CA009305F7 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
+		178A30982ACED41000B5C58D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		17B339142AC3F4A80090E010 /* SelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModel.swift; sourceTree = "<group>"; };
 		17DCBE7B2ACEB895001E38E1 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		17DCBE7D2ACEB8DC001E38E1 /* PlanAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanAddViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				84D3810F2AC3E58F009131C3 /* DBModel.swift */,
 				17B339142AC3F4A80090E010 /* SelectModel.swift */,
 				6600D92C2AC4017D00ECB1CB /* HighlightSelectModel.swift */,
+				178A30982ACED41000B5C58D /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				173B9B6E2AC08743009305F7 /* SideMenuViewController.swift in Sources */,
 				661798652ABD6E87005300BE /* Constant.swift in Sources */,
 				17DCBE7C2ACEB895001E38E1 /* PhotoCollectionViewCell.swift in Sources */,
+				178A30992ACED41000B5C58D /* Message.swift in Sources */,
 				173B9B6A2AC07C68009305F7 /* SideMenuModel.swift in Sources */,
 				84D381062AC39BE8009131C3 /* Weather.swift in Sources */,
 				17210C252AC26C7F00876672 /* PlanInsertModel.swift in Sources */,

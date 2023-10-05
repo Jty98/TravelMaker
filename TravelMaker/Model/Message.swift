@@ -2,7 +2,7 @@
 //  Message.swift
 //  TravelMaker
 //
-//  Created by JinYeong Lee on 2023/09/27.
+//  Created by 정태영 on 10/5/23.
 //
 
 import Foundation
@@ -14,3 +14,4 @@ struct Message{
     static var result4 = ""
     static var result5 = ""
 }
+
