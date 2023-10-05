@@ -18,8 +18,6 @@
 		173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B752AC129CA009305F7 /* SignUpModel.swift */; };
 		173B9B782AC17CCF009305F7 /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */; };
 		17B339152AC3F4A80090E010 /* SelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B339142AC3F4A80090E010 /* SelectModel.swift */; };
-		17DCBE6A2ACD836E001E38E1 /* PlanAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCBE692ACD836E001E38E1 /* PlanAddViewController.swift */; };
-		17DCBE6E2ACD840E001E38E1 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCBE6D2ACD840E001E38E1 /* PhotoCollectionViewCell.swift */; };
 		6600D9292AC2B0BB00ECB1CB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6600D9282AC2B0BB00ECB1CB /* CollectionViewCell.swift */; };
 		6600D92B2AC400D200ECB1CB /* HighlightQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6600D92A2AC400D200ECB1CB /* HighlightQueryModel.swift */; };
 		6600D92D2AC4017D00ECB1CB /* HighlightSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6600D92C2AC4017D00ECB1CB /* HighlightSelectModel.swift */; };
@@ -88,8 +86,6 @@
 		173B9B752AC129CA009305F7 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
 		17B339142AC3F4A80090E010 /* SelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModel.swift; sourceTree = "<group>"; };
-		17DCBE692ACD836E001E38E1 /* PlanAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlanAddViewController.swift; path = "../../../../../../Desktop/PJ_TravelMaker 복사본/TravelMaker/ViewController/PlanVC/PlanAddViewController.swift"; sourceTree = "<group>"; };
-		17DCBE6D2ACD840E001E38E1 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = "../../../../../../Desktop/PJ_TravelMaker 복사본/TravelMaker/ViewController/PlanVC/PhotoCollectionViewCell.swift"; sourceTree = "<group>"; };
 		45E454D1F9606A516B83962F /* Pods_TravelMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA32191876080E51D04346C /* Pods-TravelMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMaker.release.xcconfig"; path = "Target Support Files/Pods-TravelMaker/Pods-TravelMaker.release.xcconfig"; sourceTree = "<group>"; };
 		6600D9282AC2B0BB00ECB1CB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -306,8 +302,6 @@
 		666CA8C02ABD60850063AE32 /* PlanVC */ = {
 			isa = PBXGroup;
 			children = (
-				17DCBE6D2ACD840E001E38E1 /* PhotoCollectionViewCell.swift */,
-				17DCBE692ACD836E001E38E1 /* PlanAddViewController.swift */,
 				661798682ABD710B005300BE /* PlanViewController.swift */,
 				173B9B772AC17CCF009305F7 /* PlanTableViewCell.swift */,
 				17210C262AC272E500876672 /* PlanDetailViewController.swift */,
@@ -489,14 +483,12 @@
 				173B9B782AC17CCF009305F7 /* PlanTableViewCell.swift in Sources */,
 				666CA8C22ABD60CC0063AE32 /* LoginViewController.swift in Sources */,
 				661798692ABD710B005300BE /* PlanViewController.swift in Sources */,
-				17DCBE6A2ACD836E001E38E1 /* PlanAddViewController.swift in Sources */,
 				84D3810E2AC3C83D009131C3 /* ResultQueryModel.swift in Sources */,
 				173B9B762AC129CA009305F7 /* SignUpModel.swift in Sources */,
 				666CA8C82ABD60F20063AE32 /* SearchResultViewController.swift in Sources */,
 				666CA8C42ABD60D40063AE32 /* RegisterViewController.swift in Sources */,
 				84D3810C2AC3C5BC009131C3 /* Result.swift in Sources */,
 				6600D92B2AC400D200ECB1CB /* HighlightQueryModel.swift in Sources */,
-				17DCBE6E2ACD840E001E38E1 /* PhotoCollectionViewCell.swift in Sources */,
 				17210C272AC272E500876672 /* PlanDetailViewController.swift in Sources */,
 				666CA8C62ABD60E50063AE32 /* MainPageViewController.swift in Sources */,
 				666CA8A52ABD5FE00063AE32 /* AppDelegate.swift in Sources */,

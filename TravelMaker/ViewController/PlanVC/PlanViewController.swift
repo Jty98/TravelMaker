@@ -21,43 +21,15 @@ class PlanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupDarkMode()
-//        setupSwitchState()
-
-        
         tvPlanList.dataSource = self
         tvPlanList.delegate = self
 
         // Do any additional setup after loading the view.
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        setupDarkMode()
-//        setupSwitchState()
         readValues()
     }
-    
-    
-    func setupDarkMode() {
-        if let appearance = UserDefaults.standard.string(forKey: "Appearance") {
-            if appearance == "Dark" {
-                self.overrideUserInterfaceStyle = .dark
-            } else {
-                self.overrideUserInterfaceStyle = .light
-            }
-        }
-    }
-    
-//    func setupSwitchState() {
-//        if let switchState = UserDefaults.standard.value(forKey: "SwitchState") as? Bool {
-//            swMode.isOn = switchState
-//            updateModeStatusLabel(isDarkMode: switchState)
-//        }
-//    }
-
-    
     
     // 정보 불러오기
     func readValues(){
