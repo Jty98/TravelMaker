@@ -14,15 +14,18 @@ protocol ResultQueryProtocol{
 // json 받은 결과 decoding 해서 결과 보여주는 곳
 class ResultQueryModel{
     var delegate: ResultQueryProtocol!
-    var urlPath = ""
+    var urlPath = "http://127.0.0.1:5000/search?content="
+    var content = ""
     
-    func searchUrl(url:String) -> String {
-        urlPath = url
-        return urlPath
+    func searchUrl(content :String){
+        self.content = content
     }
     
     func downloadItems(){
-        print(urlPath)
+        print("content = \(content)")
+        urlPath = urlPath + content
+        print("urlPath = \(urlPath)")
+        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let url: URL = URL(string: urlPath)!
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url)
@@ -37,12 +40,11 @@ class ResultQueryModel{
         var locations: [DBModel] = []
         
         do{
-            let preresult = try decoder.decode(Result.self, from: data)
-            for result in preresult.results{
+            let preresult = try decoder.decode([ResultJSON].self, from: data)
+            for result in preresult{
                 let query = DBModel(result1: result.result1, result2: result.result2, result3: result.result3, result4: result.result4, result5: result.result5)
                 locations.append(query)
             }       // DB로 만든 모델 데이터 추가.?
-            print(preresult.results.count)
         }catch let error{
             print("Fail : \(error.localizedDescription)")
         }

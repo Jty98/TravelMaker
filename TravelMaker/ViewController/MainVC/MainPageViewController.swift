@@ -12,7 +12,9 @@ class MainPageViewController: UIViewController {
 
     @IBOutlet weak var tfSearch: UITextField!
     
+    @IBOutlet weak var tvWeatherView: UITextView!
     var listResult: [DBModel] = []
+    var resultText: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +29,20 @@ class MainPageViewController: UIViewController {
     @IBAction func btnSearch(_ sender: UIButton) {
 //        let searchContent = tfSearch.text ?? "제주도 관광"
 //        guard let searchContent = tfSearch.text else {return}
+        
+        tvWeatherView.text = ""
+        
         let searchContent = tfSearch.text!
-        let urlContent = "http://127.0.0.1:5000/search?content=" + searchContent
-        sendContent(url: urlContent)
+        let tfContent = searchContent
+        sendContent(url: tfContent)
         
         let resultQuery = ResultQueryModel()
         resultQuery.delegate = self
-        resultQuery.searchUrl(url: urlContent)
+        resultQuery.searchUrl(content: tfContent)
+        resultQuery.downloadItems()
+    
 
-        
-        
-        
-        
+    
         // 다음 화면으로 이동
 //        let board = UIStoryboard(name: "SearchResultSB", bundle: nil)
 //        guard let nextVC = board.instantiateViewController(withIdentifier: "SearchResultView") as? SearchResultViewController else { return }
@@ -65,9 +69,10 @@ class MainPageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "sgResultView"{
-        let resultView = segue.destination as! SearchResultViewController
-
-//            resultView.receivedResult1 = 
+//        let resultView = segue.destination as! SearchResultViewController
+////
+//            resultView.receivedResult1 = listResult.
+//            
         }
     }
     
@@ -97,7 +102,24 @@ class MainPageViewController: UIViewController {
 extension MainPageViewController: ResultQueryProtocol{
     func itemDownloaded(items: [DBModel]) {
         listResult = items
-        print(listResult)
+        print("items : \(items)")
+        print("listResult : \(listResult)")
+        let resultText = listResult.map { "\($0.result1), \($0.result2), \($0.result3), \($0.result4), \($0.result5)" }.joined(separator: "\n")
+        print("resultText : \(resultText)")
+        print("type of listResult : \(type(of: listResult))")
+        print("type of resultText : \(type(of: resultText))")
+        Message.result1 = resultText
+
+        // 쉼표를 기준으로 문자열을 분할
+        let resultArray = resultText.components(separatedBy: ", ")
+        
+        // 각 부분을 textView에 추가
+        for item in resultArray {
+            tvWeatherView.text += item + "\n"
+        }
+        
+//        tvWeatherView.text = resultText
+//                tvResult1.text = resultText
     }
 //    func itemDownloaded(items: [DBModel]) {
 //        listResult = items

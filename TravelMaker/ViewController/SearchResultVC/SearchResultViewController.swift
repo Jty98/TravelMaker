@@ -15,7 +15,7 @@ class SearchResultViewController: UIViewController {
     @IBOutlet weak var tvResult4: UITextView!
     @IBOutlet weak var tvResult5: UITextView!
     
-    
+    var receiveResultList: [String] = []
     var receivedResult1 = ""
     var receivedResult2 = ""
     var receivedResult3 = ""
@@ -23,15 +23,22 @@ class SearchResultViewController: UIViewController {
     var receivedResult5 = ""
    
 //    var listResult: [DBModel] = []
+    var message = Message()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let resultQuery = ResultQueryModel()
+        print("resultPage : \(Message.result1)")
+//        tvResult1.text = Message.result1
+        initResult()
+//        let resultQuery = ResultQueryModel()
 //        resultQuery.delegate = self
-        resultQuery.downloadItems()
+//        resultQuery.downloadItems()
         // Do any additional setup after loading the view.
         
+    }
+    
+    func initResult(){
+        tvResult1.text = Message.result1
     }
     
     
