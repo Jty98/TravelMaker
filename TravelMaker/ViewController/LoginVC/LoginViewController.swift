@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore // 솔직히 뭔지 모름
 import FirebaseAuth // firebase 로그인기능 활성화
 import GoogleSignIn // google 로그인기능 활성화
+import AVKit
 
 
 class LoginViewController: UIViewController, LoginCheck {
@@ -20,9 +21,53 @@ class LoginViewController: UIViewController, LoginCheck {
     @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var kakaoButton: UIButton!
     
+    
+    //videoPlay관련
+    var videoPlayer : AVPlayer?
+    var videoPlayerLayer : AVPlayerLayer?
+    
+    
+    
+   
+    override func viewWillAppear(_ animated: Bool) {
+        setUpVideo() //video시작
+    }
+    //video관련
+    func setUpVideo(){
+        
+        //Get the path of resuorce in
+        let bundlePath = Bundle.main.path(forResource: "loginBg", ofType: "mp4")
+        
+        guard bundlePath != nil else {return}
+        
+        //crerte a URL
+        let url = URL(fileURLWithPath: bundlePath!)
+        //create the video player item
+        let item = AVPlayerItem(url: url)
+        
+        //create the player
+        videoPlayer = AVPlayer(playerItem: item)
+        
+        //create the layer
+        videoPlayerLayer = AVPlayerLayer(player: videoPlayer)
+        
+        //adjust the size and frame
+        videoPlayerLayer?.frame = CGRect(
+            x: -self.view.frame.size.width*1.5,
+            y: 0,
+            width: self.view.frame.size.width*4,
+            height: self.view.frame.size.height)
+        
+        view.layer.insertSublayer(videoPlayerLayer!, at: 0)
+        
+        //add it and play it
+        videoPlayer?.playImmediately(atRate: 1
+        )
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        setUpElements()loginCheckAlpha를s 0으로 초기화
 
         // 기존에 로그인한 경우에 바로 페이지 이동하기
         if Auth.auth().currentUser != nil{

@@ -60,6 +60,7 @@
 		66663D022AC02C89004C90C8 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 66663D012AC02C89004C90C8 /* FirebaseRemoteConfigSwift */; };
 		66663D042AC02C89004C90C8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 66663D032AC02C89004C90C8 /* FirebaseStorage */; };
 		66663D062AC02C89004C90C8 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 66663D052AC02C89004C90C8 /* FirebaseStorageCombine-Community */; };
+		666655B72ACEEEEC00D59CE6 /* jejuLogin.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 666655B62ACEEEEC00D59CE6 /* jejuLogin.mp4 */; };
 		666CA8A52ABD5FE00063AE32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666CA8A42ABD5FE00063AE32 /* AppDelegate.swift */; };
 		666CA8A72ABD5FE00063AE32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666CA8A62ABD5FE00063AE32 /* SceneDelegate.swift */; };
 		666CA8AC2ABD5FE00063AE32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666CA8AA2ABD5FE00063AE32 /* Main.storyboard */; };
@@ -107,6 +108,7 @@
 		661798662ABD6FC1005300BE /* HighlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightViewController.swift; sourceTree = "<group>"; };
 		661798682ABD710B005300BE /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		66663CCE2AC02C5E004C90C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		666655B62ACEEEEC00D59CE6 /* jejuLogin.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = jejuLogin.mp4; sourceTree = "<group>"; };
 		666CA8A12ABD5FE00063AE32 /* TravelMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		666CA8A42ABD5FE00063AE32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		666CA8A62ABD5FE00063AE32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +205,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		666655B52ACEEEC800D59CE6 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				666655B62ACEEEEC00D59CE6 /* jejuLogin.mp4 */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 		666CA8982ABD5FE00063AE32 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +234,7 @@
 		666CA8A32ABD5FE00063AE32 /* TravelMaker */ = {
 			isa = PBXGroup;
 			children = (
+				666655B52ACEEEC800D59CE6 /* Media */,
 				173B9B742AC12991009305F7 /* Query */,
 				173B9B732AC0B097009305F7 /* SideMenu */,
 				661798632ABD6E7D005300BE /* Model */,
@@ -439,6 +450,7 @@
 				666CA8AE2ABD5FE10063AE32 /* Assets.xcassets in Resources */,
 				666CA8D12ABD614F0063AE32 /* MainPageSB.storyboard in Resources */,
 				666CA8AC2ABD5FE00063AE32 /* Main.storyboard in Resources */,
+				666655B72ACEEEEC00D59CE6 /* jejuLogin.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
