@@ -15,7 +15,7 @@ struct ImageData {
     var isDeletable: Bool // 이미지 삭제 가능 여부 변수
 }
 
-class PlanAddViewController: UIViewController {
+class PlanAddViewController: UIViewController, UITextViewDelegate {
     
     var selectedImages: [UIImage] = []
     
@@ -26,6 +26,7 @@ class PlanAddViewController: UIViewController {
     
     // 초기 날짜값을 오늘로 설정하기위해 선언
    private let datePicker = UIDatePicker()
+    let placeholder = "여행 플랜을 작성하세요!"
 
     
     override func viewDidLoad() {
@@ -44,8 +45,41 @@ class PlanAddViewController: UIViewController {
         let currentDate = Date()
         let dateString = dateFormatter.string(from: currentDate)
         lblDate.text = dateString
+        
+        // tfTag 테두리 설정
+        tfTag.layer.borderWidth = 1.0
+        tfTag.layer.cornerRadius = 5.0
+        tfTag.layer.borderColor = UIColor.black.cgColor
+        
+        // tvPlan 테두리 설정
+        tvPlan.layer.borderWidth = 1.0
+        tvPlan.layer.cornerRadius = 5.0
+        tvPlan.layer.borderColor = UIColor.black.cgColor
+        
+        // 텍스트 뷰 설정
+        tvPlan.delegate = self
+        tvPlan.text = placeholder
+        tvPlan.textColor = UIColor.lightGray
 
     }
+    
+    
+    // 텍스트 뷰의 수정 시작될 때 호출되는 메서드
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if tvPlan.text == placeholder {
+            tvPlan.text = ""
+            tvPlan.textColor = UIColor.black
+        }
+    }
+
+    // 텍스트 뷰의 수정 끝날 때 호출되는 메서드
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if tvPlan.text.isEmpty {
+            tvPlan.text = placeholder
+            tvPlan.textColor = UIColor.lightGray
+        }
+    }
+    
     
     
     @IBAction func btnUpload(_ sender: UIButton) {

@@ -51,10 +51,22 @@ class PlanDetailViewController: UIViewController {
             // URL을 생성할 수 없는 경우에 대한 처리
         }
 
-        lblTag.text = receiveTag
+        lblTag.text = " \(receiveTag)"
         lblDate.text = receiveDate
         tvPlan.text = receivePlan
-    }
+        
+        // lblTag 테두리 설정
+        lblTag.layer.borderWidth = 1.0
+        lblTag.layer.cornerRadius = 5.0
+        lblTag.layer.borderColor = UIColor.black.cgColor
+
+        // tvPlan 테두리 설정
+        tvPlan.layer.borderWidth = 1.0
+        tvPlan.layer.cornerRadius = 5.0
+        tvPlan.layer.borderColor = UIColor.black.cgColor
+
+        
+    } // ViewDidLoad
     
     @IBAction func pageChange(_ sender: UIPageControl) {
         // 이미지 URL(공백제거 해줘야함)
