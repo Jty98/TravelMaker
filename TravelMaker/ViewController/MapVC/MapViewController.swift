@@ -39,7 +39,7 @@ class MapViewController: UIViewController{
         //맵띄우기
 //        mapView = NMFMapView(frame: CGRect(x: 0, y: 191, width: 393, height: 393))
 //        view.addSubview(mapView)
-        naverMapView = NMFMapView(frame: CGRect(x: 0, y: 191, width: 393, height: 393))
+        naverMapView = NMFMapView(frame: CGRect(x: 0, y: 191, width: 393, height: 600))
         view.addSubview(naverMapView)
         //줌레벨
 //        mapView.zoomLevel = 12

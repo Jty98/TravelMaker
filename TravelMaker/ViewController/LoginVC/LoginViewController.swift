@@ -31,12 +31,13 @@ class LoginViewController: UIViewController, LoginCheck {
    
     override func viewWillAppear(_ animated: Bool) {
         setUpVideo() //video시작
+        
     }
     //video관련
     func setUpVideo(){
         
         //Get the path of resuorce in
-        let bundlePath = Bundle.main.path(forResource: "loginBg", ofType: "mp4")
+        let bundlePath = Bundle.main.path(forResource: "jejuLogin", ofType: "mp4")
         
         guard bundlePath != nil else {return}
         
