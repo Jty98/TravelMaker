@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainPage-->
+        <!--Home-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="MainPageViewController" customModule="TravelMaker" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="추천관광지" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIb-GY-pqx">
                                 <rect key="frame" x="16" y="193" width="361" height="229"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.99607843159999998" green="0.98039215800000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -48,10 +48,10 @@
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.99607843159999998" green="0.98039215800000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="wiH-xB-rai"/>
-                    <navigationItem key="navigationItem" title="MainPage" id="evy-aR-uuv">
+                    <navigationItem key="navigationItem" title="Home" id="evy-aR-uuv">
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="Usx-66-VyX">
                             <connections>
                                 <segue destination="M7m-Mj-Nzt" kind="show" id="kp8-Nx-SK0"/>
@@ -169,7 +169,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hqk-kG-1F0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.99607843159999998" green="0.98039215800000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="56L-VF-O2d"/>
                     <size key="freeformSize" width="270" height="852"/>

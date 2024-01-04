@@ -57,6 +57,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btnTCoror: UIButton!
     @IBOutlet weak var btnJCoror: UIButton!
     
+    // 투명도를 0으로해서 default색으로 지정
+    let blendedColor = UIColor.systemBackground.withAlphaComponent(0.0)
+
+    
     // DropDown에서 선택된 이메일 주소를 저장하는 변수
     var selectedDropDwonEmail = ""
     // 선택된 전체 email을 저장하는 변수
@@ -219,7 +223,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     // DropDown 초기설정
     func initUI(){
         // DropDown View 배경
-        dropView.backgroundColor = UIColor.white
+//        dropView.backgroundColor = UIColor.white
         dropdown.layer.cornerRadius = 0
         
         DropDown.appearance().textColor = UIColor.black // 아이템 텍스트 색상
@@ -392,7 +396,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         selectedE = false
             
         btnICoror.backgroundColor = UIColor.lightGray
-        btnECoror.backgroundColor = UIColor.systemBackground
+        btnECoror.backgroundColor = blendedColor // 투명도 0으로 만들어서 default색 만들기
         updateSelectedCharacters(character: "I") // 버튼 눌리면 문자열 I를 추가하는 함수
     }
     @IBAction func btnE(_ sender: UIButton) {
@@ -400,7 +404,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         selectedI = false
         selectedE = true
             
-        btnICoror.backgroundColor = UIColor.systemBackground
+        btnICoror.backgroundColor = blendedColor
         btnECoror.backgroundColor = UIColor.lightGray
         updateSelectedCharacters(character: "E")
     }
@@ -411,7 +415,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         selectedS = false
             
         btnNCoror.backgroundColor = UIColor.lightGray
-        btnSCoror.backgroundColor = UIColor.systemBackground
+        btnSCoror.backgroundColor = blendedColor
         updateSelectedCharacters(character: "N")
     }
     @IBAction func btnS(_ sender: UIButton) {
@@ -419,7 +423,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         selectedN = false
         selectedS = true
             
-        btnNCoror.backgroundColor = UIColor.systemBackground
+        btnNCoror.backgroundColor = blendedColor
         btnSCoror.backgroundColor = UIColor.lightGray
         updateSelectedCharacters(character: "S")
     }
@@ -429,7 +433,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         selectedT = false
         selectedF = true
         
-        btnTCoror.backgroundColor = UIColor.systemBackground
+        btnTCoror.backgroundColor = blendedColor
         btnFCoror.backgroundColor = UIColor.lightGray
         updateSelectedCharacters(character: "F")
     }
@@ -439,7 +443,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         selectedF = false
         
         btnTCoror.backgroundColor = UIColor.lightGray
-        btnFCoror.backgroundColor = UIColor.systemBackground
+        btnFCoror.backgroundColor = blendedColor
+
         updateSelectedCharacters(character: "T")
     }
     
@@ -449,7 +454,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         selectedJ = false
         
         btnPCoror.backgroundColor = UIColor.lightGray
-        btnJCoror.backgroundColor = UIColor.systemBackground
+        btnJCoror.backgroundColor = blendedColor
         updateSelectedCharacters(character: "P")
     }
     @IBAction func btnJ(_ sender: UIButton) {
@@ -457,7 +462,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         selectedP = false
         selectedJ = true
         
-        btnPCoror.backgroundColor = UIColor.systemBackground
+        btnPCoror.backgroundColor = blendedColor
         btnJCoror.backgroundColor = UIColor.lightGray
         updateSelectedCharacters(character: "J")
     }

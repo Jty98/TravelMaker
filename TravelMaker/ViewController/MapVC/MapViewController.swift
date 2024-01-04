@@ -39,7 +39,7 @@ class MapViewController: UIViewController{
         //맵띄우기
 //        mapView = NMFMapView(frame: CGRect(x: 0, y: 191, width: 393, height: 393))
 //        view.addSubview(mapView)
-        naverMapView = NMFMapView(frame: CGRect(x: 0, y: 191, width: 393, height: 600))
+        naverMapView = NMFMapView(frame: CGRect(x: 0, y: 95, width: 393, height: 620))
         view.addSubview(naverMapView)
         //줌레벨
 //        mapView.zoomLevel = 12
@@ -65,6 +65,24 @@ class MapViewController: UIViewController{
         geoData()
         
     }//<<<<<<<<<<<viewDidLoad>>>>>>>>>>>
+    
+    
+    
+    
+    
+    // 사이드버튼(필요한 곳에 복붙하면 됨)
+    @IBAction func showSidebutton(_ sender: UIBarButtonItem) {
+    // 스토리보드 이름과 뷰 컨트롤러의 Storyboard ID 지정
+    let storyboard = UIStoryboard(name: "MainPageSB", bundle: nil) // 스토리보드 파일 이름
+    let viewController = storyboard.instantiateViewController(withIdentifier: "SideSB") // 스토리보드 식별자 이름
+    present(viewController, animated: true, completion: nil)
+
+    }
+    
+    
+    
+    
+    
 
     
     //<<<<<<<<<<<<<<Location>>>>>>>>>>>>>>>
